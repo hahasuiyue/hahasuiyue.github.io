@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="GameShield SDK">
+    <meta name="description" content="游戏盾SDK - 专业的游戏安全防护解决方案，提供DDoS防护、CC攻击清洗、加密通信、反外挂、反篡改等全链路安全能力，5000+分布式防护节点，一链一密，彻底隐藏源站IP，为游戏业务保驾护航。">
+    <meta name="keywords" content="游戏盾,游戏盾SDK,游戏DDoS防护,游戏防CC攻击,游戏安全,反外挂SDK,游戏加速,加密隧道,游戏高防">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/icons/crowbarcode-icons.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/hover-min.css">
+    <link rel="stylesheet" href="assets/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owl-carousel/owl.theme.default.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-responsive.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+    <title>游戏盾SDK - 专业游戏安全防护解决方案 | DDoS防护·CC清洗·加密加速</title>
+</head>
+<body>
+
+    <header>
+
+        <div class="header-top pt-1 pb-1">
+
+          <div class="container">
+
+              <div class="row">
+
+                  <div class="col-md-auto d-flex justify-content-start">
+
+                      <div class="text-with-icon pt-2 pb-2" style="white-space: nowrap; font-size: 16px; font-weight: 600; color: #1a1a2e;"><i class="cci-cloud-06"></i><span class="ms-2">游戏盾</span></div>
+
+                  </div>
+
+                  <div data-menumobile="1" class="col-md-10 d-flex justify-content-end ms-auto">
+
+                      <div class="menu-mobile-header pb-2">
+
+                        <div class="row pt-2 pb-2">
+
+                          <div class="col-md-8">
+
+                            <div class="logo"><img src="assets/img/logos/onbley-logo-white.svg" alt=""></div>
+    
+                          </div>
+
+                          <div class="col-md d-flex justify-content-center align-items-end ms-auto">
+
+                            <button aria-label="Open one menu mobile" data-eventmenumobile="1" class="btn-menu-mobile green-hover"><i class="cci-uncheck-01 d-flex"></i></button>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                      <div class="d-flex w-100">
+
+                        <a href="index.html#" class="text-with-icon text-black pt-2 pb-2 ms-3 skyblue-hover-border"><i class="cci-support-07"></i><span class="ms-2">7×24小时技术支持</span></a>
+                        <a href="index.html#" class="text-with-icon text-black pt-2 pb-2 ms-3 skyblue-hover-border"><i class="cci-padlock-01"></i><span class="ms-2">免费试用</span></a>
+                        <a href="index.html#" class="text-with-icon text-black pt-2 pb-2 ms-3 skyblue-hover-border"><i class="cci-speed-01"></i><span class="ms-2">5分钟快速接入</span></a>
+
+                      </div>
+
+                      <a href="index.html#" class="text-with-icon text-black pt-2 pb-2 skyblue-hover-border" style="white-space: nowrap;"><i class="cci-padlock-01"></i><span class="ms-2">控制台登录</span></a>
+
+                  </div>
+
+                  <div class="col-md-10 d-flex ms-auto">
+                    <button aria-label="Open one menu mobile" data-eventmenumobile="1" class="green-hover"><i class="cci-menu-05 d-flex"></i></button>
+                  </div>
+
+              </div>
+
+          </div>
+
+        </div>
+
+        <div class="header">
+
+            <div class="container pt-2 pb-2">
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-3">
+
+                      <div class="col-md logo"><a href="index.html"><img src="assets/img/logos/onbley-logo-blue-and-black-gradient.svg" alt="游戏盾SDK Logo"></a></div>
+
+                    </div>
+
+                    <div data-menumobile="2" class="col-md-9 d-flex justify-content-end align-items-center">
+
+                        <div class="menu-mobile-header w-100">
+
+                          <div class="row pt-2 pb-2">
+
+                            <div class="col-md-8">
+
+                              <div class="logo"><img src="assets/img/logos/onbley-logo-white.svg" alt=""></div>
+      
+                            </div>
+
+                            <div class="col-md d-flex justify-content-end align-items-center ms-auto">
+
+                              <button aria-label="Open two menu mobile" data-eventmenumobile="2" class="btn-menu-mobile green-hover"><i class="cci-uncheck-01 d-flex"></i></button>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                                <ul class="navbar-nav">
+                                  <li class="nav-item">
+                                    <a class="nav-link skyblue-hover-border text-with-icon menu-active" aria-current="page" href="index.html"><i class="cci-home-05"></i><span class="ms-2">首页</span></a>
+                                  </li>
+                                  <li class="nav-item dropdown">
+                                    <a class="nav-link skyblue-hover-border dropdown-toggle text-with-icon" href="game-shield-sdk.html" id="services" role="button" aria-expanded="false"><i class="cci-layer-01"></i><span class="ms-2">产品服务</span></a>
+                                  </li>
+                                  <li class="nav-item dropdown">
+                                    <a class="nav-link skyblue-hover-border dropdown-toggle text-with-icon" href="index.html#" id="solutions" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="cci-company-01"></i><span class="ms-2">解决方案</span><i class="cci-arrow-02 ms-1"></i></a>
+                                    <div class="dropdown-menu dropdown-large" aria-labelledby="solutions">
+                                        
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+
+                                                <span class="h6">按游戏类型</span>
+
+                                                <ul>
+                                                    <li><a class="dropdown-item text-with-icon" href="solutions-card.html"><i class="cci-group-01"></i><span class="ms-2">棋牌游戏防护</span></a></li>
+                                                    <li><a class="dropdown-item text-with-icon" href="solutions-mobile.html"><i class="cci-mobile"></i><span class="ms-2">手游全品类防护</span></a></li>
+                                                    <li><a class="dropdown-item text-with-icon" href="solutions-pc.html"><i class="cci-laptop-01"></i><span class="ms-2">端游防护方案</span></a></li>
+                                                    <li><a class="dropdown-item text-with-icon" href="solutions-web.html"><i class="cci-browser-01"></i><span class="ms-2">页游/微端防护</span></a></li>
+                                                  </ul>
+
+                                            </div>
+
+                                            <div class="col-md-12">
+
+                                                <span class="h6">按业务场景</span>
+
+                                                <ul>
+                                                    <li><a class="dropdown-item text-with-icon" href="solutions-overseas.html"><i class="cci-cloud-06"></i><span class="ms-2">出海游戏方案</span></a></li>
+                                                    <li><a class="dropdown-item text-with-icon" href="solutions-launch.html"><i class="cci-rocket"></i><span class="ms-2">新游上线防护</span></a></li>
+                                                    <li><a class="dropdown-item text-with-icon" href="solutions-accel.html"><i class="cci-speed-01"></i><span class="ms-2">游戏加速方案</span></a></li>
+                                                </ul>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                  </li>
+                                  <li class="nav-item dropdown">
+                                    <a class="nav-link skyblue-hover-border dropdown-toggle text-with-icon" href="index.html#" id="company" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="cci-info"></i><span class="ms-2">关于我们</span><i class="cci-arrow-02 ms-1"></i></a>
+                                    <ul class="dropdown-menu" aria-labelledby="company">
+                                      <li><a class="dropdown-item text-with-icon rounded" href="about-us.html"><i class="cci-company-02"></i><span class="ms-2">公司介绍</span></a></li>
+                                      <li><a class="dropdown-item text-with-icon rounded" href="cases.html"><i class="cci-star-fill-01"></i><span class="ms-2">客户案例</span></a></li>
+                                      <li><a class="dropdown-item text-with-icon rounded" href="contact-us.html"><i class="cci-support-07"></i><span class="ms-2">联系我们</span></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a class="nav-link skyblue-hover-border text-with-icon" aria-current="page" href="contact-us.html"><i class="cci-support-07"></i><span class="ms-2">联系我们</span></a></li>
+                                </ul>
+                              </div>
+                        </nav>
+
+                        <a href="index.html#" class="btn btn-skyblue text-with-icon align-items-center justify-content-center h-100 ms-4"><i class="cci-padlock-02"></i><span class="ms-1">免费试用</span></a>
+
+                    </div>
+
+                    <div class="col-md d-flex justify-content-end ms-auto">
+                      <button aria-label="Open two menu mobile" data-eventmenumobile="2" class="green-hover"><i class="cci-menu-08 d-flex"></i></button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <div id="carousel-home" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+
+              <div class="bg-grey-lighter carousel-item active">
+                
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-md pt-5 pb-5 d-flex flex-column justify-content-center">
+    
+                            <span class="h5 subtitle">游戏盾SDK · 专业游戏安全防护</span>
+    
+                            <span class="h2 text-grey-ligther">分布式架构 · 彻底隐藏源站IP</span>
+                            
+                            <p class="mt-2 text-grey">集成SDK即可接入5000+全球防护节点，通过加密隧道智能调度流量，T级DDoS防护无上限，CC攻击0误杀0漏过，让攻击者永远找不到你的真实服务器。</p>
+
+                            <a href="game-shield-sdk.html" class="btn btn-lg btn-skyblue rounded mt-2">立即免费试用</a>
+
+                        </div>
+    
+                        <div class="col-md pt-5 pb-5 d-flex justify-content-center">
+
+                            <div class="content-img"><img src="assets/img/design/server-01.svg" alt="游戏盾分布式防护架构"></div>
+
+                        </div>
+    
+                    </div>
+
+                </div>
+
+              </div>
+
+              <div class="bg-grey-lighter carousel-item">
+                
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-md pt-5 pb-5 d-flex flex-column justify-content-center">
+    
+                            <span class="h5 subtitle">一链一密 · 端到端加密通信</span>
+    
+                            <span class="h2 text-grey-ligther">加密隧道 + 智能识别 = 安全无忧</span>
+                            
+                            <p class="mt-2 text-grey">每个客户端连接独立加密密钥，接管客户端与服务器全部网络通信。精准区分正常玩家与攻击者，非正常流量在边缘节点直接拦截，源服务器零压力。</p>
+
+                            <a href="encrypt-tunnel.html" class="btn btn-lg btn-skyblue rounded mt-2">了解加密技术</a>
+
+                        </div>
+    
+                        <div class="col-md pt-5 pb-5 d-flex justify-content-center">
+
+                            <div class="content-img"><img src="assets/img/design/private-02.svg" alt="加密通信隧道"></div>
+
+                        </div>
+    
+                    </div>
+
+                </div>
+
+              </div>
+
+              <div class="bg-grey-lighter carousel-item">
+                
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-md pt-5 pb-5 d-flex flex-column justify-content-center">
+    
+                            <span class="h5 subtitle">5分钟快速接入 · 支持全平台</span>
+    
+                            <span class="h2 text-grey-ligther">Android / iOS / Windows 全平台覆盖</span>
+                            
+                            <p class="mt-2 text-grey">仅需2-3行代码即可完成SDK接入，支持Unity、Unreal、Cocos等主流游戏引擎，不改动原有业务逻辑。接入即防护，上线即安全。</p>
+
+                            <a href="contact-us.html" class="btn btn-lg btn-skyblue rounded mt-2">获取接入文档</a>
+
+                        </div>
+    
+                        <div class="col-md pt-5 pb-5 d-flex justify-content-center">
+
+                            <div class="content-img"><img src="assets/img/design/cloud-02.svg" alt="全平台支持"></div>
+
+                        </div>
+    
+                    </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+        </div>
+
+        <section class="text-center p-4 pt-5 pb-5 mb-5">
+
+          <div class="container mt-2">
+
+              <h1 class="h2">一站式游戏安全防护解决方案</h1>
+
+              <p class="mt-3">从网络层到应用层，从流量到客户端，全方位守护您的游戏业务</p>
+  
+              <div class="features row row-hover-bg">
+  
+                  <div class="col border rounded p-4 d-flex justify-content-center align-items-center flex-column m-2 aos-init aos-animate" data-aos="fade-down-right">
+  
+                      <div class="content-img content-img-icon"><img src="assets/img/design/server-14.png" draggable="false" width="100" height="100" alt="DDoS防护"></div>
+  
+                      <span class="h5 mt-3 font-bold">DDoS分布式防护</span>
+  
+                      <p>5000+全球防护节点分布式清洗，T级别流量攻击无压力。攻击流量被分散到边缘节点，源服务器永不直接暴露在公网。</p>
+  
+                      <a href="anti-ddos.html" class="btn btn-outline-secondary">查看详情</a>
+  
+                  </div>
+  
+                  <div class="col border rounded p-4 d-flex justify-content-center align-items-center flex-column m-2 aos-init aos-animate" data-aos="fade-up">
+  
+                      <div class="content-img content-img-icon"><img src="assets/img/design/control.svg" draggable="false" width="100" height="100" alt="CC清洗"></div>
+  
+                      <span class="h5 mt-3 font-bold">CC攻击智能清洗</span>
+  
+                      <p>基于行为分析和设备指纹，精准识别恶意请求。CC攻击0误杀、0漏过，正常玩家流量无感通过，登录接口P95延迟降低60%。</p>
+  
+                      <a href="cc-protection.html" class="btn btn-outline-secondary">查看详情</a>
+  
+                  </div>
+  
+                  <div class="col border rounded p-4 d-flex justify-content-center align-items-center flex-column m-2 aos-init aos-animate" data-aos="fade-down-left">
+  
+                      <div class="content-img content-img-icon"><img src="assets/img/design/server-icon.png" draggable="false" width="100" height="100" alt="加密加速"></div>
+  
+                      <span class="h5 mt-3 font-bold">加密通信加速</span>
+  
+                      <p>一链一密加密隧道，智能路由就近接入。防护同时实现全网加速，跨国对战延时增加不超过5ms，八线BGP网络优化。</p>
+  
+                      <a href="encrypt-tunnel.html" class="btn btn-outline-secondary">查看详情</a>
+  
+                  </div>
+                  
+              </div>
+
+          </div>     
+
+        </section>
+
+        <section class="bg-grey text-center p-4 pt-5 pb-5 mb-5">
+
+          <div class="container">
+
+              <h2 class="h2">为什么选择游戏盾SDK？</h2>
+
+              <p class="mt-3">十余年游戏安全防护经验，服务超过2000+游戏企业客户</p>
+
+              <div class="row features">
+
+                  <div class="col-sm border rounded p-3 m-2 hvr-bounce-to-bottom bg-light d-flex flex-column aos-init aos-animate" data-aos="flip-up">
+
+                      <i class="cci-security-01"></i>
+
+                      <span class="h5">隐藏源站IP</span>
+
+                      <p class="mt-1">动态虚拟IP技术，攻击者永远无法定位真实服务器，从根源杜绝DDoS攻击。</p>
+
+                  </div>
+
+                  <div class="col-sm border rounded p-3 m-2 hvr-bounce-to-bottom bg-light d-flex flex-column aos-init aos-animate" data-aos="flip-down">
+
+                      <i class="cci-speed-01"></i>
+
+                      <span class="h5">T级防护能力</span>
+
+                      <p class="mt-1">总防御能力超6T，分布式节点集群，不依赖单点带宽硬抗，攻击越大越分散。</p>
+
+                  </div>
+
+                  <div class="col-sm border rounded p-3 m-2 hvr-bounce-to-bottom bg-light d-flex flex-column aos-init aos-animate" data-aos="flip-up">
+
+                      <i class="cci-ssl-01"></i>
+
+                      <span class="h5">一链一密加密</span>
+
+                      <p class="mt-1">每个连接独立密钥加密，防抓包、防篡改、防重放，通信安全等级金融级。</p>
+
+                  </div>
+
+                  <div class="col-sm border rounded p-3 m-2 hvr-bounce-to-bottom bg-light d-flex flex-column aos-init aos-animate" data-aos="flip-down">
+
+                      <i class="cci-support-03"></i>
+
+                      <span class="h5">5分钟快速接入</span>
+
+                      <p class="mt-1">SDK集成仅需2-3行代码，无需改动业务逻辑，专业技术团队全程协助接入。</p>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+        </section>
+
+        <section class="text-center pb-5 pt-5 pb-5">
+
+          <div class="container">
+
+              <h3 class="h2">核心防护能力</h3>
+
+              <p class="mt-3">三层防护体系，全方位守护游戏业务安全</p>
+  
+              <div class="row mt-5">
+
+                  <div class="col-sm hvr-underline-from-center aos-init aos-animate" data-aos="fade-right" data-aos-duration="700">
+
+                      <span class="h5 font-bold">流量层防护</span>
+
+                      <p class="mt-1">SYN Flood、ACK Flood、UDP Flood、ICMP Flood等各类流量型DDoS攻击清洗，分布式节点分散攻击压力。</p>
+
+                  </div>
+
+                  <div class="col-sm hvr-underline-from-center aos-init aos-animate" data-aos="zoom-in" data-aos-duration="700">
+
+                      <span class="h5 font-bold">连接层防护</span>
+
+                      <p class="mt-1">连接数限制、协议校验、异常连接识别，阻断半连接攻击和连接耗尽攻击，保障服务器连接池健康。</p>
+
+                  </div>
+
+                  <div class="col-sm hvr-underline-from-center aos-init aos-animate" data-aos="zoom-in" data-aos-duration="700">
+
+                      <span class="h5 font-bold">应用层防护</span>
+
+                      <p class="mt-1">CC攻击识别、封包攻击检测、自定义协议校验，精准区分正常玩家与恶意请求，0误杀0漏过。</p>
+
+                  </div>
+
+                  <div class="col-sm hvr-underline-from-center aos-init aos-animate" data-aos="fade-left" data-aos-duration="700">
+
+                      <span class="h5 font-bold">终端层防护</span>
+
+                      <p class="mt-1">设备指纹、环境检测、APP防篡改、反调试反HOOK，识别风险终端并自动隔离，从客户端源头拦截攻击。</p>
+
+                  </div>
+
+              </div>
+
+          </div>
+          
+        </section>
+
+        <section class="bg-grey text-center p-4 pt-5 pb-5 mb-5">
+
+          <div class="container">
+
+              <h5 class="h2">我们的优势</h5>
+
+              <p class="mt-3">为什么超过2000家游戏企业选择我们</p>
+
+              <div class="row justify-content-center features">
+
+                  <div class="col-sm border rounded p-3 m-2 hvr-wobble-horizontal aos-init aos-animate d-flex flex-column bg-light" data-aos="fade-down-right">
+
+                      <i class="cci-network-01"></i>
+
+                      <span class="h5">5000+全球节点</span>
+
+                      <p class="mt-1">节点遍布全球主要地区，八线BGP网络，智能调度就近接入，防护同时实现网络加速。</p>
+
+                  </div>
+
+                  <div class="col-sm border rounded p-3 m-2 hvr-wobble-horizontal aos-init aos-animate d-flex flex-column bg-light" data-aos="fade-down">
+
+                      <i class="cci-secure-01"></i>
+
+                      <span class="h5">AI智能识别</span>
+
+                      <p class="mt-1">基于机器学习的行为分析模型，持续进化攻击识别能力，新型攻击秒级响应拦截。</p>
+
+                  </div>
+
+                  <div class="col-sm border rounded p-3 m-2 hvr-wobble-horizontal aos-init aos-animate d-flex flex-column bg-light" data-aos="fade-down-left">
+
+                      <i class="cci-speed-01"></i>
+
+                      <span class="h5">毫秒级切换</span>
+
+                      <p class="mt-1">攻击触发时秒级切换调度策略，玩家无感知、不掉线，业务连续性保障99.99%。</p>
+
+                  </div>
+
+                  <div class="w-100"></div>
+
+                  <div class="col-sm border rounded p-3 m-2 hvr-wobble-horizontal aos-init aos-animate d-flex flex-column bg-light" data-aos="fade-up-right">
+
+                      <i class="cci-settings-01"></i>
+
+                      <span class="h5">全平台支持</span>
+
+                      <p class="mt-1">支持Android、iOS、Windows全平台，兼容Unity、Unreal、Cocos主流游戏引擎，原生接入。</p>
+
+                  </div>    
+
+                  <div class="col-sm border rounded p-3 m-2 hvr-wobble-horizontal aos-init aos-animate d-flex flex-column bg-light" data-aos="fade-up">
+
+                      <i class="cci-list-02"></i>
+
+                      <span class="h5">实时数据可视化</span>
+
+                      <p class="mt-1">多维度实时数据看板，攻击事件、流量趋势、节点状态一目了然，安全态势全面掌控。</p>
+
+                  </div>
+
+                  <div class="col-sm border rounded p-3 m-2 hvr-wobble-horizontal aos-init aos-animate d-flex flex-column bg-light" data-aos="fade-up-left">
+
+                      <i class="cci-support-03"></i>
+
+                      <span class="h5">7×24专属服务</span>
+
+                      <p class="mt-1">安全专家团队7×24小时值守，攻击事件应急响应，专属技术群全程跟进，快速解决问题。</p>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+        </section>
+
+        <section class="text-center p-4 pt-4 pb-5 mb-4">
+
+          <div class="container">
+
+              <h6 class="h2">客户评价</h6>
+
+              <p class="mt-3">看看游戏行业客户怎么说</p>
+  
+              <div class="customer owl-carousel owl-theme owl-loaded owl-drag mt-5">
+  
+                  <div class="border rounded p-4 d-flex flex-column justify-content-center align-items-center" data-aos="fade-down-right" data-aos-duration="500">
+  
+                      <div class="content-img border rounded rounded-circle content-profile"><img class="border rounded rounded-circle" src="assets/img/profile/08m.jpg" width="100" height="100" alt="客户头像"></div>
+  
+                      <span class="h5 mt-3">某头部棋牌平台 CTO</span>
+  
+                      <p>"之前用高防IP，三天两头被打穿，玩家投诉不断。接入游戏盾SDK后，源站IP完全隐藏，攻击者根本找不到目标，再也没被打下来过。"</p>
+  
+                  </div>
+  
+                  <div class="border rounded p-4 d-flex flex-column justify-content-center align-items-center" data-aos="fade-down" data-aos-duration="500">
+  
+                      <div class="content-img border rounded rounded-circle content-profile"><img class="border rounded rounded-circle" src="assets/img/profile/01w.jpg" width="100" height="100" alt="客户头像"></div>
+  
+                      <span class="h5 mt-3">某MOBA手游 运营总监</span>
+  
+                      <p>"CC攻击是我们最头疼的问题，登录接口经常被刷爆。游戏盾的CC清洗效果太好了，0误杀，正常玩家完全无感，登录成功率提升到99.9%。"</p>
+  
+                  </div>
+  
+                  <div class="border rounded p-4 d-flex flex-column justify-content-center align-items-center" data-aos="fade-left" data-aos-duration="500">
+  
+                      <div class="content-img border rounded rounded-circle content-profile"><img class="border rounded rounded-circle" src="assets/img/profile/31m.jpg" width="100" height="100" alt="客户头像"></div>
+  
+                      <span class="h5 mt-3">某出海游戏 技术负责人</span>
+  
+                      <p>"全球节点加速效果超出预期，东南亚玩家延迟从200ms降到80ms，同时还解决了跨境DDoS攻击问题，一举两得。"</p>
+  
+                  </div>
+  
+                  <div class="border rounded p-4 d-flex flex-column justify-content-center align-items-center" data-aos="fade-down-right" data-aos-duration="500">
+  
+                      <div class="content-img border rounded rounded-circle content-profile"><img class="border rounded rounded-circle" src="assets/img/profile/10m.jpg" width="100" height="100" alt="客户头像"></div>
+  
+                      <span class="h5 mt-3">某MMORPG 安全主管</span>
+  
+                      <p>"接入非常简单，半天就搞定了。反外挂和APP防篡改功能也很实用，外挂工作室损失惨重，游戏环境干净多了。"</p>
+  
+                  </div>
+  
+              </div>
+
+          </div>
+
+        </section>
+
+        <section aria-label="关于我们" class="bg-grey text-center p-4 pt-5 pb-5">
+
+          <div class="container">
+
+              <div class="row">
+
+                  <div class="col d-flex align-items-center justify-content-center mt-3 mb-3 aos-init aos-animate" data-aos="fade-right">
+
+                      <div class="content-img content-feature"><img class="img-thumbnail" src="assets/img/design/company.jpg" alt="公司团队"></div>
+
+                  </div>
+
+                  <div class="col text-start d-flex flex-column align-items-start align-self-start mt-3 mb-3 aos-init aos-animate" data-aos="fade-left">
+
+                      <span class="h4 font-bold">关于游戏盾SDK</span>
+                      
+                      <p class="mt-2">游戏盾SDK是国内领先的游戏安全防护解决方案提供商，专注于为游戏行业提供DDoS防护、CC清洗、加密通信、反外挂等全链路安全服务。</p>
+
+                      <p>我们拥有十余年安全攻防经验，构建了全球5000+分布式防护节点，服务超过2000家游戏企业客户，涵盖棋牌、MMO、MOBA、FPS、休闲等各类游戏类型。我们的使命是让每一个游戏开发者都能专注于创作好游戏，安全的事情交给我们。</p>
+
+                      <div class="btn-groups">
+
+                          <a class="btn btn-primary mt-1" href="about-us.html">了解更多</a>
+                          <a class="btn btn-secondary mt-1" href="contact-us.html">联系我们</a>
+
+                      </div>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+        </section>
+
+        <section aria-label="常见问题" class="accordion-bottom text-start p-4 pt-5 pb-5 mb-3">
+
+          <div class="container">
+  
+              <div class="row">
+  
+                  <div class="col-sm text-left mt-3 mb-3 ps-5 pe-5">
+  
+                      <span class="h1">常见问题</span>
+  
+                      <p class="mt-4">我们整理了游戏开发者最常问的问题，如果没有找到您想要的答案，欢迎随时联系我们的技术专家。</p>
+  
+                      <p>所有客户均配备专属技术支持群，7×24小时响应，接入过程全程协助。</p>
+  
+                      <div class="btn-groups">
+  
+                          <a href="contact-us.html" class="btn btn-primary">联系技术专家</a>
+                          <a href="contact-us.html" class="btn btn-outline-transparent">申请免费试用</a>
+  
+                      </div>
+  
+                  </div>
+  
+                  <div class="col-sm text-left mt-3 mb-3">
+  
+                      <span class="h2">您可能关心的问题</span>
+  
+                      <p class="mt-3">看看这些问题是否解答了您的疑惑</p>
+                      
+                      <div class="accordion accordion-flush" id="accordionQuestion">
+                        <div class="accordion-item border mt-1 mb-1">
+                          <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">什么是游戏盾SDK？</button>
+                          </h2>
+                          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionQuestion">
+                            <div class="accordion-body">游戏盾SDK是一款集成到游戏客户端的安全防护开发包。集成后，游戏客户端不再直接连接源服务器，而是通过加密隧道连接到最近的防护节点，由云端完成流量清洗、攻击拦截、智能调度等安全处理。这种方式可以彻底隐藏源站真实IP，攻击者无法定位目标，从根源上解决DDoS和CC攻击问题。</div>
+                          </div>
+                        </div>
+                        <div class="accordion-item border mt-1 mb-1">
+                          <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">游戏盾和高防IP有什么区别？</button>
+                          </h2>
+                          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionQuestion">
+                            <div class="accordion-body">传统高防IP是通过DNS解析将流量牵引到清洗中心，源站IP仍然暴露，一旦被黑客探测到真实IP，高防就形同虚设。游戏盾SDK则是客户端主动连接防护节点，源站IP完全不出现在任何公开DNS记录中，攻击者根本无法定位。同时游戏盾采用分布式架构，不依赖单点带宽，防护能力理论上无上限，成本也更低。</div>
+                          </div>
+                        </div>
+                        <div class="accordion-item border mt-1 mb-1">
+                          <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">接入游戏盾SDK需要修改游戏代码吗？</button>
+                          </h2>
+                          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionQuestion">
+                            <div class="accordion-body">接入非常简单。仅需在游戏启动时调用2-3个初始化接口，SDK会自动接管网络通信层，游戏业务代码完全不需要改动。我们提供完整的接入文档和Demo，支持Android、iOS、Windows全平台，兼容Unity、Unreal、Cocos等主流引擎。一般游戏团队半天即可完成接入测试。</div>
+                          </div>
+                        </div>
+                        <div class="accordion-item border mt-1 mb-1">
+                          <h2 class="accordion-header" id="flush-headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">接入后会增加游戏延迟吗？</button>
+                          </h2>
+                          <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionQuestion">
+                            <div class="accordion-body">正常情况下，游戏盾不仅不会增加延迟，反而会因为就近接入和智能路由而降低延迟。我们在全球部署了5000+防护节点，SDK会自动为玩家选择距离最近、网络质量最好的节点接入。实测数据显示，国内玩家延迟增加控制在2ms以内，跨国对战延时增加不超过5ms，玩家完全无感知。</div>
+                          </div>
+                        </div>
+                        <div class="accordion-item border mt-1 mb-1">
+                          <h2 class="accordion-header" id="flush-headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">可以免费试用吗？</button>
+                          </h2>
+                          <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionQuestion">
+                            <div class="accordion-body">可以。我们提供7天免费试用，包含完整的防护功能，您可以在真实环境中验证防护效果。试用期间配备专属技术支持，协助完成接入和测试。满意后再选择适合的套餐，无任何强制消费。</div>
+                          </div>
+                        </div>
+                      </div>
+  
+                  </div>
+  
+              </div>
+
+          </div>
+  
+        </section>
+
+    </main>
+
+    <footer>
+
+      <div class="w-100 m-0 row">
+
+        <div class="col-md-12 bg-grey border-top border-bottom">
+
+          <div class="container pt-5 pb-5 text-center">
+
+            <p class="h3">还在被DDoS攻击困扰？立即体验游戏盾SDK的强大防护能力</p>
+
+            <a href="contact-us.html" class="btn btn-lg btn-skyblue mt-3">免费试用7天</a>
+            
+          </div>
+
+        </div>
+
+        <div class="col-md-12">
+
+          <div class="container pt-5 pb-5">
+
+            <div class="row">
+
+              <div class="col-md p-0">
+
+                <div class="col-md logo"><a href="index.html"><img src="assets/img/logos/onbley-logo-blue-and-black-gradient.svg" alt="游戏盾SDK Logo"></a></div>                
+                
+                <p class="mt-4">游戏盾SDK是专业的游戏安全防护解决方案提供商，致力于为游戏行业提供全方位的网络安全与加速服务。</p>
+                
+                <span class="h6">联系方式</span>
+
+                <div class="d-flex info-email mt-2 mb-1"><i class="cci-mail-03 d-flex align-items-center me-2"></i>sales@safeengine.net</div>
+                <div class="d-flex info-email mt-2 mb-1"><i class="cci-whatsapp-fill-01 d-flex align-items-center me-2"></i>+44 7925 060092</div>
+
+              </div>
+
+              <div class="col-md">
+
+                <span class="h6">产品服务</span>
+
+                <ul class="mt-2 mb-3 links">
+                  <li><a class="d-flex me-2 text-grey green-skyblue text-link link-primary" href="game-shield-sdk.html"><i class="cci-security-01"></i><span class="ms-2">游戏盾SDK</span></a></li>
+                </ul>
+
+                <span class="h6">法律条款</span>
+
+                <ul class="mt-2 mb-3 links">
+                  <li><a class="d-flex me-2 text-grey green-skyblue text-link link-primary" href="terms-of-service.html"><i class="cci-contract-01"></i><span class="ms-2">服务条款</span></a></li>
+                  <li><a class="d-flex me-2 text-grey green-skyblue text-link link-primary" href="privacy-policy.html"><i class="cci-padlock-03"></i><span class="ms-2">隐私政策</span></a></li>
+                </ul>
+
+              </div>
+
+              <div class="col-md">
+
+                <span class="h6">解决方案</span>
+
+                <ul class="mt-2 mb-3 links">
+                  <li><a class="d-flex me-2 text-grey green-skyblue text-link link-primary" href="solutions-card.html"><i class="cci-group-01"></i><span class="ms-2">棋牌游戏防护</span></a></li>
+                  <li><a class="d-flex me-2 text-grey green-skyblue text-link link-primary" href="solutions-mobile.html"><i class="cci-mobile"></i><span class="ms-2">手游全品类防护</span></a></li>
+                  <li><a class="d-flex me-2 text-grey green-skyblue text-link link-primary" href="solutions-pc.html"><i class="cci-laptop-01"></i><span class="ms-2">端游防护方案</span></a></li>
+                  <li><a class="d-flex me-2 text-grey green-skyblue text-link link-primary" href="solutions-overseas.html"><i class="cci-cloud-06"></i><span class="ms-2">出海游戏方案</span></a></li>
+                </ul>
+
+              </div>
+
+              <div class="col-md">
+
+                <span class="h6">关于我们</span>
+
+                <ul class="mt-2 mb-3 links">
+                  <li><a class="d-flex me-2 text-grey green-skyblue text-link link-primary" href="about-us.html"><i class="cci-company-02"></i><span class="ms-2">公司介绍</span></a></li>
+                  <li><a class="d-flex me-2 text-grey green-skyblue text-link link-primary" href="cases.html"><i class="cci-star-fill-01"></i><span class="ms-2">客户案例</span></a></li>
+                  <li><a class="d-flex me-2 text-grey green-skyblue text-link link-primary" href="contact-us.html"><i class="cci-support-07"></i><span class="ms-2">联系我们</span></a></li>
+                </ul>
+                
+                <span class="h6">法律条款</span>
+
+                <ul class="mt-2 mb-3 links">
+                  <li><a class="d-flex me-2 text-grey green-skyblue text-link link-primary" href="terms-of-service.html"><i class="cci-contract-01"></i><span class="ms-2">服务条款</span></a></li>
+                  <li><a class="d-flex me-2 text-grey green-skyblue text-link link-primary" href="privacy-policy.html"><i class="cci-padlock-03"></i><span class="ms-2">隐私政策</span></a></li>
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-12 pt-3 pb-3">
+          
+          <div class="container">
+
+            <div class="row">
+
+              <div class="col-md p-0">
+
+                <p>Copyright 2026 © 游戏盾SDK 版权所有</p>
+
+              </div>
+
+              <div class="col-md p-0 d-flex justify-content-end">
+
+                <ul class="links links-in-line">
+                  <li><a href="terms-of-service.html" class="d-flex me-2 green-hover text-link link-primary">服务条款</a></li>
+                  <li><a href="privacy-policy.html" class="d-flex ms-2 green-hover text-link link-primary">隐私政策</a></li>
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+    <!-- 右侧悬浮客服 -->
+    <style>
+        .float-contact {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px 0 0 8px;
+            overflow: hidden;
+        }
+        .float-contact a {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: #fff;
+            color: #333;
+            text-decoration: none;
+            font-size: 13px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .float-contact a:last-child {
+            border-bottom: none;
+        }
+        .float-contact a:hover {
+            background: #0ea5e9;
+            color: #fff;
+            padding-right: 20px;
+        }
+        .float-contact a i {
+            font-size: 18px;
+            margin-right: 8px;
+        }
+        .float-contact .fc-label {
+            max-width: 0;
+            overflow: hidden;
+            transition: max-width 0.3s;
+        }
+        .float-contact a:hover .fc-label {
+            max-width: 200px;
+        }
+    </style>
+    <div class="float-contact">
+        <a href="https://t.me/dunsdk" target="_blank" title="Telegram: @dunsdk">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.126.036.252.06.378.027.18.054.36.08.54l.23 1.36c.232 1.36.348 2.04.336 2.048.008.048.048.608.016.648-.032.04-.12.06-.176.06-.072 0-.144-.03-.216-.06l-1.272-.632c-.144-.072-.304-.072-.456 0l-.528.264c-.144.072-.304.072-.456 0l-1.272-.632c-.072-.03-.144-.06-.216-.06-.056 0-.144.02-.176.06-.032.04-.024.528.016.648.008.048.128.728.36 2.088l.232 1.36c.024.18.052.36.08.54.024.126.044.252.06.378a.506.506 0 0 1 .171.325c.144.117.366.142.465.14.12.003.24-.012.36-.045l1.338-.405c.12-.036.24-.054.36-.054.12 0 .24.018.36.054l1.338.405c.12.033.24.048.36.045.1-.002.321-.023.465-.14a.506.506 0 0 0 .171-.325c.016-.126.036-.252.06-.378.027-.18.054-.36.08-.54l.23-1.36c.232-1.36.348-2.04.336-2.048-.008-.048-.048-.608-.016-.648.032-.04.12-.06.176-.06.072 0 .144.03.216.06l1.272.632c.144.072.304.072.456 0l.528-.264c.144-.072.304-.072.456 0l1.272.632c.072.03.144.06.216.06.056 0 .144-.02.176-.06.032-.04.024-.528-.016-.648-.008-.048-.128-.728-.36-2.088l-.232-1.36c-.024-.18-.052-.36-.08-.54-.024-.126-.044-.252-.06-.378a.506.506 0 0 0-.171-.325c-.144-.117-.366-.142-.465-.14l-1.338-.405a1.36 1.36 0 0 0-.36-.054c-.12 0-.24.018-.36.054l-1.338.405c-.12.033-.24.048-.36.045z"/></svg>
+            <span class="fc-label">Telegram @dunsdk</span>
+        </a>
+        <a href="https://t.me/youxidun" target="_blank" title="Telegram: @youxidun">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.126.036.252.06.378.027.18.054.36.08.54l.23 1.36c.232 1.36.348 2.04.336 2.048.008.048.048.608.016.648-.032.04-.12.06-.176.06-.072 0-.144-.03-.216-.06l-1.272-.632c-.144-.072-.304-.072-.456 0l-.528.264c-.144.072-.304.072-.456 0l-1.272-.632c-.072-.03-.144-.06-.216-.06-.056 0-.144.02-.176.06-.032.04-.024.528.016.648.008.048.128.728.36 2.088l.232 1.36c.024.18.052.36.08.54.024.126.044.252.06.378a.506.506 0 0 1 .171.325c.144.117.366.142.465.14.12.003.24-.012.36-.045l1.338-.405c.12-.036.24-.054.36-.054.12 0 .24.018.36.054l1.338.405c.12.033.24.048.36.045.1-.002.321-.023.465-.14a.506.506 0 0 0 .171-.325c.016-.126.036-.252.06-.378.027-.18.054-.36.08-.54l.23-1.36c.232-1.36.348-2.04.336-2.048-.008-.048-.048-.608-.016-.648.032-.04.12-.06.176-.06.072 0 .144.03.216.06l1.272.632c.144.072.304.072.456 0l.528-.264c.144-.072.304-.072.456 0l1.272.632c.072.03.144.06.216.06.056 0 .144-.02.176-.06.032-.04.024-.528-.016-.648-.008-.048-.128-.728-.36-2.088l-.232-1.36c-.024-.18-.052-.36-.08-.54-.024-.126-.044-.252-.06-.378a.506.506 0 0 0-.171-.325c-.144-.117-.366-.142-.465-.14l-1.338-.405a1.36 1.36 0 0 0-.36-.054c-.12 0-.24.018-.36.054l-1.338.405c-.12.033-.24.048-.36.045z"/></svg>
+            <span class="fc-label">Telegram @youxidun</span>
+        </a>
+        <a href="https://wa.me/447925060092" target="_blank" title="WhatsApp: +44 7925 060092">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span class="fc-label">WhatsApp +44 7925 060092</span>
+        </a>
+        <a href="mailto:aoecloud@hotmail.com" title="邮箱: aoecloud@hotmail.com">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span class="fc-label">aoecloud@hotmail.com</span>
+        </a>
+    </div>
+    
+    <script src="assets/js/jquery-3.6.0.slim.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/owl-carousel/owl.carousel.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
