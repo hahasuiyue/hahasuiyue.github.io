@@ -1,0 +1,707 @@
+@font-face {
+    font-family: "crowbarcode-icons";
+    src: url("crowbarcode-icons.eot%3Fdb0a034a1bc068955be870ae69049fb8%3F") format("embedded-opentype"),
+url("crowbarcode-icons.woff2%3Fdb0a034a1bc068955be870ae69049fb8") format("woff2"),
+url("crowbarcode-icons.woff%3Fdb0a034a1bc068955be870ae69049fb8") format("woff"),
+url("crowbarcode-icons.ttf%3Fdb0a034a1bc068955be870ae69049fb8") format("truetype"),
+url("crowbarcode-icons.svg%3Fdb0a034a1bc068955be870ae69049fb8") format("svg");
+}
+
+i[class^="cci-"]:before, i[class*=" cci-"]:before {
+    font-family: crowbarcode-icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.cci-301-01:before {
+    content: "\f101";
+}
+.cci-404-01:before {
+    content: "\f102";
+}
+.cci-ads-01:before {
+    content: "\f103";
+}
+.cci-ads-02:before {
+    content: "\f104";
+}
+.cci-ads-03:before {
+    content: "\f105";
+}
+.cci-amex-fill-01:before {
+    content: "\f106";
+}
+.cci-android-fill-01:before {
+    content: "\f107";
+}
+.cci-antenna-01:before {
+    content: "\f108";
+}
+.cci-arrow-01:before {
+    content: "\f109";
+}
+.cci-arrow-02:before {
+    content: "\f10a";
+}
+.cci-backup-01:before {
+    content: "\f10b";
+}
+.cci-backup-02:before {
+    content: "\f10c";
+}
+.cci-bitcoin-fill-01:before {
+    content: "\f10d";
+}
+.cci-blog-01:before {
+    content: "\f10e";
+}
+.cci-blog-02:before {
+    content: "\f10f";
+}
+.cci-blog-03:before {
+    content: "\f110";
+}
+.cci-book-info-01:before {
+    content: "\f111";
+}
+.cci-bot-01:before {
+    content: "\f112";
+}
+.cci-bot-02:before {
+    content: "\f113";
+}
+.cci-browser-01:before {
+    content: "\f114";
+}
+.cci-browser-tell-01:before {
+    content: "\f115";
+}
+.cci-browser-tell-02:before {
+    content: "\f116";
+}
+.cci-cart-01:before {
+    content: "\f117";
+}
+.cci-cart-02:before {
+    content: "\f118";
+}
+.cci-cart-03:before {
+    content: "\f119";
+}
+.cci-cart-04:before {
+    content: "\f11a";
+}
+.cci-chat-tell-01:before {
+    content: "\f11b";
+}
+.cci-check-01:before {
+    content: "\f11c";
+}
+.cci-check-02:before {
+    content: "\f11d";
+}
+.cci-check-03:before {
+    content: "\f11e";
+}
+.cci-check-06:before {
+    content: "\f11f";
+}
+.cci-close-menu-02:before {
+    content: "\f120";
+}
+.cci-cloud-01:before {
+    content: "\f121";
+}
+.cci-cloud-02:before {
+    content: "\f122";
+}
+.cci-cloud-03:before {
+    content: "\f123";
+}
+.cci-cloud-04:before {
+    content: "\f124";
+}
+.cci-cloud-05:before {
+    content: "\f125";
+}
+.cci-cloud-06:before {
+    content: "\f126";
+}
+.cci-cloud-07:before {
+    content: "\f127";
+}
+.cci-cloud-08:before {
+    content: "\f128";
+}
+.cci-cogwheel-01:before {
+    content: "\f129";
+}
+.cci-company-01:before {
+    content: "\f12a";
+}
+.cci-company-02:before {
+    content: "\f12b";
+}
+.cci-configure-01:before {
+    content: "\f12c";
+}
+.cci-contract-01:before {
+    content: "\f12d";
+}
+.cci-controls-01:before {
+    content: "\f12e";
+}
+.cci-controls-02:before {
+    content: "\f12f";
+}
+.cci-customer-01:before {
+    content: "\f130";
+}
+.cci-customer-02:before {
+    content: "\f131";
+}
+.cci-customer-03:before {
+    content: "\f132";
+}
+.cci-dark-mode-01:before {
+    content: "\f133";
+}
+.cci-discord-fill-01:before {
+    content: "\f134";
+}
+.cci-discover-fill-01:before {
+    content: "\f135";
+}
+.cci-disk-01:before {
+    content: "\f136";
+}
+.cci-disk-02:before {
+    content: "\f137";
+}
+.cci-dns-01:before {
+    content: "\f138";
+}
+.cci-domain-01:before {
+    content: "\f139";
+}
+.cci-domain-02:before {
+    content: "\f13a";
+}
+.cci-domain-03:before {
+    content: "\f13b";
+}
+.cci-domain-04:before {
+    content: "\f13c";
+}
+.cci-download-01:before {
+    content: "\f13d";
+}
+.cci-download-02:before {
+    content: "\f13e";
+}
+.cci-download-03:before {
+    content: "\f13f";
+}
+.cci-ecommerce-01:before {
+    content: "\f140";
+}
+.cci-email-01:before {
+    content: "\f141";
+}
+.cci-email-02:before {
+    content: "\f142";
+}
+.cci-ethernet-01:before {
+    content: "\f143";
+}
+.cci-ethernet-02:before {
+    content: "\f144";
+}
+.cci-facebook-01:before {
+    content: "\f145";
+}
+.cci-facebook-02:before {
+    content: "\f146";
+}
+.cci-facebook-03:before {
+    content: "\f147";
+}
+.cci-facebook-04:before {
+    content: "\f148";
+}
+.cci-facebook-05:before {
+    content: "\f149";
+}
+.cci-facebook-06:before {
+    content: "\f14a";
+}
+.cci-facebook-07:before {
+    content: "\f14b";
+}
+.cci-facebook-fill-01:before {
+    content: "\f14c";
+}
+.cci-file-01:before {
+    content: "\f14d";
+}
+.cci-firewall-01:before {
+    content: "\f14e";
+}
+.cci-firewall-02:before {
+    content: "\f14f";
+}
+.cci-folder-01:before {
+    content: "\f150";
+}
+.cci-folder-02:before {
+    content: "\f151";
+}
+.cci-folder-03:before {
+    content: "\f152";
+}
+.cci-geo-01:before {
+    content: "\f153";
+}
+.cci-geo-02:before {
+    content: "\f154";
+}
+.cci-google-fill-01:before {
+    content: "\f155";
+}
+.cci-group-01:before {
+    content: "\f156";
+}
+.cci-group-tell-01:before {
+    content: "\f157";
+}
+.cci-headphone-01:before {
+    content: "\f158";
+}
+.cci-heart-mic-01:before {
+    content: "\f159";
+}
+.cci-home-01:before {
+    content: "\f15a";
+}
+.cci-home-02:before {
+    content: "\f15b";
+}
+.cci-home-03:before {
+    content: "\f15c";
+}
+.cci-home-04:before {
+    content: "\f15d";
+}
+.cci-home-05:before {
+    content: "\f15e";
+}
+.cci-hosting-01:before {
+    content: "\f15f";
+}
+.cci-hosting-02:before {
+    content: "\f160";
+}
+.cci-hosting-03:before {
+    content: "\f161";
+}
+.cci-house-01:before {
+    content: "\f162";
+}
+.cci-http-01:before {
+    content: "\f163";
+}
+.cci-https-01:before {
+    content: "\f164";
+}
+.cci-info-01:before {
+    content: "\f165";
+}
+.cci-instagram-fill-01:before {
+    content: "\f166";
+}
+.cci-ip-01:before {
+    content: "\f167";
+}
+.cci-laptop-01:before {
+    content: "\f168";
+}
+.cci-layer-01:before {
+    content: "\f169";
+}
+.cci-layer-02:before {
+    content: "\f16a";
+}
+.cci-layer-03:before {
+    content: "\f16b";
+}
+.cci-layer-04:before {
+    content: "\f16c";
+}
+.cci-layer-05:before {
+    content: "\f16d";
+}
+.cci-linux-01:before {
+    content: "\f16e";
+}
+.cci-list-01:before {
+    content: "\f16f";
+}
+.cci-list-02:before {
+    content: "\f170";
+}
+.cci-list-03:before {
+    content: "\f171";
+}
+.cci-logout-01:before {
+    content: "\f172";
+}
+.cci-logout-02:before {
+    content: "\f173";
+}
+.cci-mail-02:before {
+    content: "\f174";
+}
+.cci-mail-03:before {
+    content: "\f175";
+}
+.cci-mail-cog-01:before {
+    content: "\f176";
+}
+.cci-mail-phone-01:before {
+    content: "\f177";
+}
+.cci-manager-01:before {
+    content: "\f178";
+}
+.cci-map-01:before {
+    content: "\f179";
+}
+.cci-mastercard-fill-01:before {
+    content: "\f17a";
+}
+.cci-menu-01:before {
+    content: "\f17b";
+}
+.cci-menu-02:before {
+    content: "\f17c";
+}
+.cci-menu-03:before {
+    content: "\f17d";
+}
+.cci-menu-04:before {
+    content: "\f17e";
+}
+.cci-menu-05:before {
+    content: "\f17f";
+}
+.cci-menu-06:before {
+    content: "\f180";
+}
+.cci-menu-07:before {
+    content: "\f181";
+}
+.cci-menu-08:before {
+    content: "\f182";
+}
+.cci-message-01:before {
+    content: "\f183";
+}
+.cci-money-01:before {
+    content: "\f184";
+}
+.cci-money-02:before {
+    content: "\f185";
+}
+.cci-mouse-01:before {
+    content: "\f186";
+}
+.cci-network-01:before {
+    content: "\f187";
+}
+.cci-network-02:before {
+    content: "\f188";
+}
+.cci-network-03:before {
+    content: "\f189";
+}
+.cci-padlock-01:before {
+    content: "\f18a";
+}
+.cci-padlock-02:before {
+    content: "\f18b";
+}
+.cci-padlock-03:before {
+    content: "\f18c";
+}
+.cci-padlock-open-01:before {
+    content: "\f18d";
+}
+.cci-page-01:before {
+    content: "\f18e";
+}
+.cci-paypal-fill-01:before {
+    content: "\f18f";
+}
+.cci-phone-01:before {
+    content: "\f190";
+}
+.cci-plugin-01:before {
+    content: "\f191";
+}
+.cci-question-01:before {
+    content: "\f192";
+}
+.cci-repair-01:before {
+    content: "\f193";
+}
+.cci-reseller-01:before {
+    content: "\f194";
+}
+.cci-rounded-01-fill:before {
+    content: "\f195";
+}
+.cci-rounded-01:before {
+    content: "\f196";
+}
+.cci-router-01:before {
+    content: "\f197";
+}
+.cci-script-01:before {
+    content: "\f198";
+}
+.cci-search-01:before {
+    content: "\f199";
+}
+.cci-secure-01:before {
+    content: "\f19a";
+}
+.cci-security-01:before {
+    content: "\f19b";
+}
+.cci-security-02:before {
+    content: "\f19c";
+}
+.cci-seo-01:before {
+    content: "\f19d";
+}
+.cci-server-01:before {
+    content: "\f19e";
+}
+.cci-server-02:before {
+    content: "\f19f";
+}
+.cci-server-03:before {
+    content: "\f1a0";
+}
+.cci-server-04:before {
+    content: "\f1a1";
+}
+.cci-server-05:before {
+    content: "\f1a2";
+}
+.cci-server-06:before {
+    content: "\f1a3";
+}
+.cci-server-07:before {
+    content: "\f1a4";
+}
+.cci-server-08:before {
+    content: "\f1a5";
+}
+.cci-server-09:before {
+    content: "\f1a6";
+}
+.cci-server-10:before {
+    content: "\f1a7";
+}
+.cci-server-11:before {
+    content: "\f1a8";
+}
+.cci-service-01:before {
+    content: "\f1a9";
+}
+.cci-service-02:before {
+    content: "\f1aa";
+}
+.cci-setting-01:before {
+    content: "\f1ab";
+}
+.cci-setting-02:before {
+    content: "\f1ac";
+}
+.cci-setting-03:before {
+    content: "\f1ad";
+}
+.cci-settings-01:before {
+    content: "\f1ae";
+}
+.cci-settings-02:before {
+    content: "\f1af";
+}
+.cci-settings-03:before {
+    content: "\f1b0";
+}
+.cci-settings-04:before {
+    content: "\f1b1";
+}
+.cci-share-01:before {
+    content: "\f1b2";
+}
+.cci-share-02:before {
+    content: "\f1b3";
+}
+.cci-share-04:before {
+    content: "\f1b4";
+}
+.cci-sharing-01:before {
+    content: "\f1b5";
+}
+.cci-sharing-02:before {
+    content: "\f1b6";
+}
+.cci-sharing-03:before {
+    content: "\f1b7";
+}
+.cci-skype-fill-01:before {
+    content: "\f1b8";
+}
+.cci-speed-01:before {
+    content: "\f1b9";
+}
+.cci-ssd-01:before {
+    content: "\f1ba";
+}
+.cci-ssd-02:before {
+    content: "\f1bb";
+}
+.cci-ssl-01:before {
+    content: "\f1bc";
+}
+.cci-star-01:before {
+    content: "\f1bd";
+}
+.cci-star-fill-01:before {
+    content: "\f1be";
+}
+.cci-star-half-01:before {
+    content: "\f1bf";
+}
+.cci-startup-01:before {
+    content: "\f1c0";
+}
+.cci-stripe-fill-01:before {
+    content: "\f1c1";
+}
+.cci-support-01:before {
+    content: "\f1c2";
+}
+.cci-support-02:before {
+    content: "\f1c3";
+}
+.cci-support-03:before {
+    content: "\f1c4";
+}
+.cci-support-04:before {
+    content: "\f1c5";
+}
+.cci-support-05:before {
+    content: "\f1c6";
+}
+.cci-support-06:before {
+    content: "\f1c7";
+}
+.cci-support-07:before {
+    content: "\f1c8";
+}
+.cci-tools-01:before {
+    content: "\f1c9";
+}
+.cci-transfer-01:before {
+    content: "\f1ca";
+}
+.cci-transfer-02:before {
+    content: "\f1cb";
+}
+.cci-transfer-03:before {
+    content: "\f1cc";
+}
+.cci-transfer-04:before {
+    content: "\f1cd";
+}
+.cci-tutorial-01:before {
+    content: "\f1ce";
+}
+.cci-twitter-01:before {
+    content: "\f1cf";
+}
+.cci-twitter-02:before {
+    content: "\f1d0";
+}
+.cci-twitter-fill-01:before {
+    content: "\f1d1";
+}
+.cci-uncheck-01:before {
+    content: "\f1d2";
+}
+.cci-upload-01:before {
+    content: "\f1d3";
+}
+.cci-upload-02:before {
+    content: "\f1d4";
+}
+.cci-upload-03:before {
+    content: "\f1d5";
+}
+.cci-upload-05:before {
+    content: "\f1d6";
+}
+.cci-user-mic-01:before {
+    content: "\f1d7";
+}
+.cci-user-phone-01:before {
+    content: "\f1d8";
+}
+.cci-visa-fill-01:before {
+    content: "\f1d9";
+}
+.cci-vpn-01:before {
+    content: "\f1da";
+}
+.cci-vpn-02:before {
+    content: "\f1db";
+}
+.cci-vpn-03:before {
+    content: "\f1dc";
+}
+.cci-vps-01:before {
+    content: "\f1dd";
+}
+.cci-website-01:before {
+    content: "\f1de";
+}
+.cci-whatsapp-01:before {
+    content: "\f1df";
+}
+.cci-whatsapp-02:before {
+    content: "\f1e0";
+}
+.cci-whatsapp-fill-01:before {
+    content: "\f1e1";
+}
+.cci-wifi-01:before {
+    content: "\f1e2";
+}
+.cci-wifi-02:before {
+    content: "\f1e3";
+}
+.cci-www-01:before {
+    content: "\f1e4";
+}
+.cci-youtube-fill-01:before {
+    content: "\f1e5";
+}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 50" width="220" height="50">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0369a1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <path d="M25 5 L45 12 V28 C45 38 35 45 25 48 C15 45 5 38 5 28 V12 Z" 
+        fill="none" 
+        stroke="url(#logoGradient)" 
+        stroke-width="3"
+        stroke-linejoin="round"/>
+  <text x="25" y="33" 
+        text-anchor="middle" 
+        font-family="Arial, sans-serif" 
+        font-size="22" 
+        font-weight="bold" 
+        fill="url(#logoGradient)">S</text>
+  <text x="60" y="32" 
+        font-family="Arial, sans-serif" 
+        font-size="26" 
+        font-weight="bold" 
+        fill="#1a1a2e">Safe<tspan fill="url(#logoGradient)">Engine</tspan></text>
+</svg>
