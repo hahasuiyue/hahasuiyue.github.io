@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="GameShield SDK">
+    <meta name="description" content="游戏盾SDK接入文档 - Netshield SDK Android/iOS/macOS/Windows/Linux/Flutter/Unity/Cocos/UniApp全平台集成指南、API Reference与FAQ。">
+    <meta name="keywords" content="游戏盾SDK,SDK接入文档,Netshield SDK,Android接入,iOS接入,Unity插件,Flutter插件,Cocos Creator接入,UniApp接入">
+    <link rel="canonical" href="https://www.safeengine.net/sdk-docs.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "游戏盾SDK接入文档",
+        "description": "Netshield SDK 全平台接入指南、API Reference 与 FAQ。",
+        "keywords": ["SDK接入", "API Reference", "Netshield", "Android", "iOS", "Unity", "Flutter"],
+        "author": {
+            "@type": "Organization",
+            "name": "游戏盾SDK"
+        }
+    }
+    </script>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/icons/crowbarcode-icons.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/hover-min.css">
+    <link rel="stylesheet" href="assets/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owl-carousel/owl.theme.default.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-responsive.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+
+    <!-- 接入文档专属样式：代码块 / 目录 / 表格 / 侧边栏 -->
+    <style>
+        /* ========== 布局 ========== */
+        .docs-layout {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+        .docs-sidebar {
+            width: 260px;
+            flex: 0 0 260px;
+            position: sticky;
+            top: 90px;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+            padding: 1.25rem 1rem;
+            border-radius: 12px;
+            background: #fff;
+            border: 1px solid #eef2f6;
+            box-shadow: 0 2px 14px rgba(14, 116, 180, 0.05);
+        }
+        .docs-sidebar .side-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a2e;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            margin: 0 0 .85rem .35rem;
+        }
+        .docs-sidebar .nav {
+            flex-direction: column;
+            gap: 2px;
+        }
+        .docs-sidebar .nav-link {
+            font-size: 14px;
+            color: #4a5568;
+            padding: .42rem .75rem;
+            border-radius: 7px;
+            border-left: 2px solid transparent;
+            transition: all .18s;
+        }
+        .docs-sidebar .nav-link:hover {
+            background: #f0f9ff;
+            color: #0ea5e9;
+        }
+        .docs-sidebar .nav-link.active {
+            background: #e6f7fe;
+            color: #0b7faf;
+            font-weight: 600;
+            border-left-color: #0ea5e9;
+        }
+        .docs-sidebar .nav-link.sub {
+            padding-left: 1.65rem;
+            font-size: 13px;
+            color: #718096;
+        }
+        .docs-main {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+        @media (max-width: 991.98px) {
+            .docs-sidebar { display: none; }
+        }
+
+        /* ========== 页眉 banner ========== */
+        .docs-banner {
+            background: linear-gradient(120deg, #f0f9ff 0%, #e6f7fe 55%, #eaf6ff 100%);
+            border-bottom: 1px solid #e3eef5;
+        }
+        .docs-banner .eyebrow {
+            color: #0ea5e9;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        /* ========== 标题层级 ========== */
+        .docs-main h2 {
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 2.6rem 0 1.1rem;
+            padding-bottom: .65rem;
+            border-bottom: 2px solid #0ea5e9;
+            display: inline-block;
+        }
+        .docs-main h3 {
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 1.9rem 0 .8rem;
+        }
+        .docs-main h4 {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: #0b7faf;
+            margin: 1.4rem 0 .5rem;
+        }
+        .docs-main h5 {
+            font-size: .9rem;
+            font-weight: 700;
+            color: #64748b;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin: 1.1rem 0 .35rem;
+        }
+        .docs-main p { color: #3d4852; line-height: 1.75; margin-bottom: .85rem; }
+
+        /* ========== 表格 ========== */
+        .docs-main table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 1.4rem;
+            font-size: 14px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 8px rgba(14, 116, 180, 0.07);
+        }
+        .docs-main thead th {
+            background: #0ea5e9;
+            color: #fff;
+            font-weight: 600;
+            text-align: left;
+            padding: .7rem .9rem;
+            border: none;
+            white-space: nowrap;
+        }
+        .docs-main tbody td {
+            padding: .65rem .9rem;
+            border-top: 1px solid #edf2f7;
+            color: #3d4852;
+            vertical-align: top;
+        }
+        .docs-main tbody tr:nth-child(even) { background: #f8fbfd; }
+        .docs-main tbody tr:hover { background: #f0f9ff; }
+        .docs-main th:first-child, .docs-main td:first-child { white-space: normal; }
+        .docs-main table code { white-space: normal; }
+
+        /* ========== 代码块 ========== */
+        pre[class*="language-"], pre.doc-code {
+            background: #0f172a;
+            color: #e2e8f0;
+            border-radius: 10px;
+            padding: 1.1rem 1.2rem;
+            margin: 1rem 0 1.4rem;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.65;
+            border: 1px solid #1e293b;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, .12);
+        }
+        pre.doc-code code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, "WenQuanYi Micro Hei", monospace;
+            color: inherit;
+            background: none;
+            padding: 0;
+            white-space: pre;
+            font-size: inherit;
+        }
+        /* 行内代码 */
+        .docs-main :not(pre) > code {
+            background: #e6f7fe;
+            color: #0b6f98;
+            padding: .12em .42em;
+            border-radius: 5px;
+            font-size: .88em;
+            font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+            border: 1px solid #c6ecfb;
+        }
+        /* 代码块语言角标 */
+        pre.doc-code { position: relative; }
+        pre.doc-code[data-lang]::before {
+            content: attr(data-lang);
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: rgba(14, 165, 233, .92);
+            color: #fff;
+            font-size: 11px;
+            font-family: inherit;
+            padding: 2px 10px;
+            border-radius: 0 10px 0 10px;
+            letter-spacing: .04em;
+        }
+
+        /* ========== 提示块 ========== */
+        .callout {
+            border-radius: 10px;
+            padding: .9rem 1.1rem;
+            margin: 1.1rem 0 1.5rem;
+            font-size: 14.5px;
+            line-height: 1.7;
+            border-left: 4px solid;
+        }
+        .callout-warning {
+            background: #fff8e6;
+            border-color: #f0a500;
+            color: #7a5a00;
+        }
+        .callout-note {
+            background: #eef7ff;
+            border-color: #0ea5e9;
+            color: #0b5c80;
+        }
+        .callout-tip {
+            background: #e9f8f0;
+            border-color: #19a974;
+            color: #0a6b47;
+        }
+        .callout .callout-title {
+            font-weight: 700;
+            display: block;
+            margin-bottom: .25rem;
+        }
+        .callout ul { margin: .35rem 0 0; padding-left: 1.25rem; }
+
+        /* ========== FAQ ========== */
+        .faq-item { margin-bottom: .65rem; border-radius: 10px; overflow: hidden; border: 1px solid #eef2f6; }
+        .faq-item .faq-q {
+            width: 100%;
+            text-align: left;
+            background: #f8fbfd;
+            border: none;
+            padding: .85rem 1.1rem;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a2e;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            transition: background .18s;
+        }
+        .faq-item .faq-q:hover { background: #eef7ff; }
+        .faq-item .faq-q .badge-q {
+            flex: 0 0 auto;
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            background: #0ea5e9;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .faq-item .faq-q .faq-toggle {
+            margin-left: auto;
+            color: #0ea5e9;
+            transition: transform .25s;
+            font-size: 13px;
+        }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); }
+        .faq-item .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease;
+            background: #fff;
+        }
+        .faq-item.open .faq-a { max-height: 800px; }
+        .faq-item .faq-a-inner { padding: .25rem 1.1rem .9rem 3.4rem; font-size: 14.5px; color: #3d4852; line-height: 1.75; }
+        .faq-item .faq-a-inner ul { padding-left: 1.25rem; margin: .35rem 0; }
+
+        /* 步骤标签 */
+        .step-label {
+            display: inline-block;
+            background: #0ea5e9;
+            color: #fff;
+            font-size: 12.5px;
+            font-weight: 700;
+            padding: 1px 9px;
+            border-radius: 5px;
+            margin-right: .5rem;
+            vertical-align: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===================== 页头 ===================== -->
+<header>
+    <div class="header-top pt-1 pb-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-auto d-flex justify-content-start">
+                    <div class="text-with-icon pt-2 pb-2" style="white-space: nowrap; font-size: 16px; font-weight: 600; color: #1a1a2e;"><i class="cci-cloud-06"></i><span class="ms-2">游戏盾</span></div>
+                </div>
+                <div data-menumobile="1" class="col-md-10 d-flex justify-content-end ms-auto">
+                    <div class="menu-mobile-header pb-2">
+                        <div class="row pt-2 pb-2">
+                            <div class="col-md-8">
+                                <div class="logo"><img src="assets/img/logos/onbley-logo-white.svg" alt=""></div>
+                            </div>
+                            <div class="col-md d-flex justify-content-center align-items-end ms-auto">
+                                <button aria-label="Open one menu mobile" data-eventmenumobile="1" class="btn-menu-mobile green-hover"><i class="cci-uncheck-01 d-flex"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex w-100">
+                        <a href="index.html#" class="text-with-icon text-black pt-2 pb-2 ms-3 skyblue-hover-border"><i class="cci-support-07"></i><span class="ms-2">7×24小时技术支持</span></a>
+                        <a href="index.html#" class="text-with-icon text-black pt-2 pb-2 ms-3 skyblue-hover-border"><i class="cci-padlock-01"></i><span class="ms-2">免费试用</span></a>
+                        <a href="index.html#" class="text-with-icon text-black pt-2 pb-2 ms-3 skyblue-hover-border"><i class="cci-speed-01"></i><span class="ms-2">5分钟快速接入</span></a>
+                    </div>
+                    <a href="index.html#" class="text-with-icon text-black pt-2 pb-2 skyblue-hover-border" style="white-space: nowrap;"><i class="cci-padlock-01"></i><span class="ms-2">控制台登录</span></a>
+                </div>
+                <div class="col-md-10 d-flex ms-auto">
+                    <button aria-label="Open one menu mobile" data-eventmenumobile="1" class="green-hover"><i class="cci-menu-05 d-flex"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="container pt-2 pb-2">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="logo"><a href="index.html"><img src="assets/img/logos/onbley-logo-blue-and-black-gradient.svg" alt="游戏盾SDK Logo"></a></div>
+                </div>
+                <div data-menumobile="2" class="col-md-9 d-flex justify-content-end align-items-center">
+                    <div class="menu-mobile-header w-100">
+                        <div class="row pt-2 pb-2">
+                            <div class="col-md-8">
+                                <div class="logo"><img src="assets/img/logos/onbley-logo-white.svg" alt=""></div>
+                            </div>
+                            <div class="col-md d-flex justify-content-end align-items-center ms-auto">
+                                <button aria-label="Open two menu mobile" data-eventmenumobile="2" class="btn-menu-mobile green-hover"><i class="cci-uncheck-01 d-flex"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link skyblue-hover-border text-with-icon" href="index.html"><i class="cci-home-05"></i><span class="ms-2">首页</span></a></li>
+                                <li class="nav-item"><a class="nav-link skyblue-hover-border text-with-icon" href="game-shield-sdk.html"><i class="cci-layer-01"></i><span class="ms-2">产品服务</span></a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link skyblue-hover-border dropdown-toggle text-with-icon" href="index.html#" id="solutions" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="cci-company-01"></i><span class="ms-2">解决方案</span><i class="cci-arrow-02 ms-1"></i></a>
+                                    <ul class="dropdown-menu" aria-labelledby="solutions">
+                                        <li><span class="dropdown-header h6">按类型</span></li>
+                                        <li><a class="dropdown-item text-with-icon" href="solutions-game.html"><i class="cci-layer-01"></i><span class="ms-2">游戏类防护</span></a></li>
+                                        <li><a class="dropdown-item text-with-icon" href="solutions-finance.html"><i class="cci-padlock-02"></i><span class="ms-2">金融类防护</span></a></li>
+                                        <li><a class="dropdown-item text-with-icon" href="solutions-social.html"><i class="cci-group-01"></i><span class="ms-2">社交类防护</span></a></li>
+                                        <li><a class="dropdown-item text-with-icon" href="solutions-live.html"><i class="cci-video-01"></i><span class="ms-2">直播类防护</span></a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link skyblue-hover-border dropdown-toggle text-with-icon menu-active" href="index.html#" id="company" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="cci-info"></i><span class="ms-2">关于我们</span><i class="cci-arrow-02 ms-1"></i></a>
+                                    <ul class="dropdown-menu" aria-labelledby="company">
+                                        <li><a class="dropdown-item text-with-icon rounded" href="about-us.html"><i class="cci-company-02"></i><span class="ms-2">公司介绍</span></a></li>
+                                        <li><a class="dropdown-item text-with-icon rounded" href="sdk-docs.html"><i class="cci-document-02"></i><span class="ms-2">接入文档</span></a></li>
+                                        <li><a class="dropdown-item text-with-icon rounded" href="contact-us.html"><i class="cci-support-07"></i><span class="ms-2">联系我们</span></a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="nav-link skyblue-hover-border text-with-icon" href="contact-us.html"><i class="cci-support-07"></i><span class="ms-2">联系我们</span></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <a href="contact-us.html" class="btn btn-skyblue text-with-icon align-items-center justify-content-center h-100 ms-4"><i class="cci-padlock-02"></i><span class="ms-1">免费试用</span></a>
+                </div>
+                <div class="col-md d-flex justify-content-end ms-auto">
+                    <button aria-label="Open two menu mobile" data-eventmenumobile="2" class="green-hover"><i class="cci-menu-08 d-flex"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ===================== 主体 ===================== -->
+<main>
+
+    <!-- Banner -->
+    <div class="docs-banner pt-5 pb-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md">
+                    <span class="eyebrow">Netshield SDK · Developer Docs</span>
+                    <h1 class="h2 text-grey-ligther mt-2">SDK 接入文档</h1>
+                    <p class="mt-2 text-grey" style="max-width: 640px;">覆盖 Android / iOS / macOS / Windows / Linux / Flutter / Unity / Cocos Creator / UniApp 全平台接入，含集成示例、API Reference、线程模型与常见问题排查。</p>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <span class="badge bg-white text-dark border px-3 py-2"><i class="cci-speed-01 me-1"></i>5 分钟快速接入</span>
+                        <span class="badge bg-white text-dark border px-3 py-2"><i class="cci-layer-01 me-1"></i>10 种接入形态</span>
+                        <span class="badge bg-white text-dark border px-3 py-2"><i class="cci-padlock-02 me-1"></i>全链路加密</span>
+                    </div>
+                </div>
+                <div class="col-md-auto d-none d-md-block">
+                    <div class="content-img"><img src="assets/img/design/cloud-02.svg" alt="SDK接入" width="220"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="p-4 pt-5 pb-5">
+        <div class="container">
+            <div class="docs-layout">
+
+                <!-- 侧边目录 -->
+                <aside class="docs-sidebar">
+                    <div class="side-title">目录</div>
+                    <nav class="nav nav-pills flex-column" id="docsToc">
+                        <a class="nav-link active" href="#sec-1">1. 概述</a>
+                        <a class="nav-link" href="#sec-2">2. 接入前准备</a>
+                        <a class="nav-link" href="#sec-3">3. SDK 集成</a>
+                        <a class="nav-link sub" href="#sec-3-1">3.1 Android</a>
+                        <a class="nav-link sub" href="#sec-3-2">3.2 iOS</a>
+                        <a class="nav-link sub" href="#sec-3-3">3.3 macOS</a>
+                        <a class="nav-link sub" href="#sec-3-4">3.4 Windows</a>
+                        <a class="nav-link sub" href="#sec-3-5">3.5 Linux</a>
+                        <a class="nav-link sub" href="#sec-3-6">3.6 Cocos Creator 2</a>
+                        <a class="nav-link sub" href="#sec-3-7">3.7 Cocos Creator 3</a>
+                        <a class="nav-link sub" href="#sec-3-8">3.8 Unity</a>
+                        <a class="nav-link sub" href="#sec-3-9">3.9 Flutter</a>
+                        <a class="nav-link sub" href="#sec-3-10">3.10 UniApp X UTS</a>
+                        <a class="nav-link sub" href="#sec-3-11">3.11 UniApp Native Plugin</a>
+                        <a class="nav-link" href="#sec-4">4. 初始化与业务流程</a>
+                        <a class="nav-link" href="#sec-5">5. 异步调用与线程模型</a>
+                        <a class="nav-link" href="#sec-6">6. 错误处理</a>
+                        <a class="nav-link" href="#sec-7">7. 网络与安全</a>
+                        <a class="nav-link" href="#sec-8">8. 生命周期管理</a>
+                        <a class="nav-link" href="#sec-9">9. API Reference</a>
+                        <a class="nav-link sub" href="#sec-9-1">基础结果约定</a>
+                        <a class="nav-link sub" href="#sec-9-2">Android Java API</a>
+                        <a class="nav-link sub" href="#sec-9-3">iOS/macOS API</a>
+                        <a class="nav-link sub" href="#sec-9-4">Apple C ABI</a>
+                        <a class="nav-link sub" href="#sec-9-5">Windows C ABI</a>
+                        <a class="nav-link sub" href="#sec-9-6">Linux C ABI</a>
+                        <a class="nav-link sub" href="#sec-9-7">Flutter API</a>
+                        <a class="nav-link sub" href="#sec-9-8">Unity API</a>
+                        <a class="nav-link sub" href="#sec-9-9">Cocos Creator 2 API</a>
+                        <a class="nav-link sub" href="#sec-9-10">Cocos Creator 3 API</a>
+                        <a class="nav-link sub" href="#sec-9-11">UniApp X UTS API</a>
+                        <a class="nav-link sub" href="#sec-9-12">UniApp Native Plugin API</a>
+                        <a class="nav-link" href="#sec-10">10. FAQ</a>
+                    </nav>
+                </aside>
+
+                <!-- 正文 -->
+                <article class="docs-main">
+
+                    <!-- 1. 概述 -->
+                    <h2 id="sec-1">1. 概述</h2>
+                    <p>Netshield SDK 是客户端防护服务 SDK。App 启动 SDK 后，SDK 会启动本地监听服务；业务侧通过规则名调用 <code>getLocalhostPort</code> 获取本地端口，然后访问 <code>http://127.0.0.1:&lt;port&gt;</code> 完成受保护请求。</p>
+                    <p>本文覆盖以下接入形态：</p>
+                    <table>
+                        <thead><tr><th>形态</th><th>适用开发者</th><th>语言/框架</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>Android SDK</code></td><td>Android App</td><td>Java + JNI/C++</td></tr>
+                            <tr><td><code>iOS/macOS SDK</code></td><td>iOS/macOS App</td><td>Objective-C / C ABI</td></tr>
+                            <tr><td><code>Windows SDK</code></td><td>Windows 客户端</td><td>C ABI / DLL</td></tr>
+                            <tr><td><code>Linux SDK</code></td><td>Linux 客户端</td><td>C ABI / SO</td></tr>
+                            <tr><td><code>Flutter Plugin</code></td><td>Flutter App</td><td>Dart + 平台插件</td></tr>
+                            <tr><td><code>Unity Plugin</code></td><td>Unity App/Game</td><td>C# + 平台插件</td></tr>
+                            <tr><td><code>Cocos Creator 2</code></td><td>Cocos Creator 2 项目</td><td>JavaScript + JSB/Reflection</td></tr>
+                            <tr><td><code>Cocos Creator 3</code></td><td>Cocos Creator 3 项目</td><td>TypeScript + JSB</td></tr>
+                            <tr><td><code>UniApp X UTS</code></td><td>UniApp X 项目</td><td>UTS + Android/iOS</td></tr>
+                            <tr><td><code>UniApp Native Plugin</code></td><td>UniApp Native Plugin 项目</td><td>Native Plugin</td></tr>
+                        </tbody>
+                    </table>
+
+                    <!-- 2. 接入前准备 -->
+                    <h2 id="sec-2">2. 接入前准备</h2>
+
+                    <h3>通用准备</h3>
+                    <table>
+                        <thead><tr><th>项目</th><th>说明</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>pid</code></td><td>客服提供的 pid，启动 SDK 必填。</td></tr>
+                            <tr><td><code>key</code></td><td>客服提供的 key，启动 SDK 必填。</td></tr>
+                            <tr><td>规则名 <code>rule</code></td><td>用于查询本地端口。如 <code>tcp;web;80</code>、<code>udp;socket;40090</code>。具体业务规则由服务端配置决定。</td></tr>
+                            <tr><td>网络</td><td>SDK 启动时需要联网。</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Android</h3>
+                    <table>
+                        <thead><tr><th>项目</th><th>要求</th></tr></thead>
+                        <tbody>
+                            <tr><td>minSdk</td><td>21</td></tr>
+                            <tr><td>ABI</td><td>按发布包支持的 ABI 集成，常见为 <code>armeabi-v7a</code>、<code>arm64-v8a</code>、<code>x86</code>、<code>x86_64</code></td></tr>
+                            <tr><td>权限</td><td>需要 <code>INTERNET</code>、<code>ACCESS_NETWORK_STATE</code>；如发布包要求，还需 <code>READ_GSERVICES</code></td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>iOS</h3>
+                    <table>
+                        <thead><tr><th>项目</th><th>要求</th></tr></thead>
+                        <tbody>
+                            <tr><td>系统版本</td><td>iOS 11.0+</td></tr>
+                            <tr><td>二进制</td><td><code>netshield.framework</code></td></tr>
+                            <tr><td>系统 Framework</td><td><code>DeviceCheck</code>、<code>UIKit</code>、<code>CoreGraphics</code>、<code>CFNetwork</code>、<code>Foundation</code>；如使用官方发布包，通常已在集成配置中处理。</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>macOS</h3>
+                    <table>
+                        <thead><tr><th>项目</th><th>要求</th></tr></thead>
+                        <tbody>
+                            <tr><td>系统版本</td><td>macOS 10.11+</td></tr>
+                            <tr><td>二进制</td><td><code>netshield.framework</code></td></tr>
+                            <tr><td>系统 Framework</td><td><code>Cocoa</code>、<code>IOKit</code>、<code>SystemConfiguration</code>、<code>Network</code>、<code>Security</code>、<code>WebKit</code></td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Windows</h3>
+                    <table>
+                        <thead><tr><th>项目</th><th>要求</th></tr></thead>
+                        <tbody>
+                            <tr><td>二进制</td><td><code>netshield.dll</code>；部分发布包可能按架构提供 <code>netshield32.dll</code> 或 <code>netshield64.dll</code></td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Linux</h3>
+                    <table>
+                        <thead><tr><th>项目</th><th>要求</th></tr></thead>
+                        <tbody>
+                            <tr><td>二进制</td><td><code>libnetshield.so</code></td></tr>
+                        </tbody>
+                    </table>
+
+                    <!-- 3. SDK 集成 -->
+                    <h2 id="sec-3">3. SDK 集成</h2>
+
+                    <h3 id="sec-3-1">3.1 Android</h3>
+                    <p>第三方 App 接入时引入 SDK AAR，并确保 AAR 中的 native libraries 被打包到 APK/AAB。</p>
+<pre class="doc-code" data-lang="Java"><code>import com.netshield.Netshield;
+
+Netshield.startNetshieldService("your_pid", "your_key",
+    (result, errorMessage, clientIP) -> {
+        if (result == 0) {
+            int port = Netshield.getLocalhostPort("tcp;web;80");
+            String url = "http://127.0.0.1:" + port;
+            // 使用 url 发起业务请求
+        } else {
+            // 启动失败；展示或记录 errorMessage
+        }
+    });</code></pre>
+
+                    <h3 id="sec-3-2">3.2 iOS</h3>
+                    <p>iOS 接入时将 <code>netshield.framework</code> 加入 App target，并按 Xcode 要求嵌入和签名。对外公开类为 <code>LibNetshield</code>：</p>
+<pre class="doc-code" data-lang="Objective-C"><code>#import &lt;Netshield/LibNetshield.h&gt;</code></pre>
+<pre class="doc-code" data-lang="Objective-C"><code>[LibNetshield startService:@"your_pid"
+                       key:@"your_key"
+   completionHandler:^(NSInteger startResult, NSString *errMessage, NSString *clientIP) {
+    if (startResult == 0) {
+        int port = [LibNetshield getLocalhostPort:@"tcp;web;80"];
+        NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:%d", port];
+        // 使用 url 发起业务请求
+    } else {
+        // 启动失败；展示或记录 errMessage
+    }
+}];</code></pre>
+
+                    <div class="callout callout-warning">
+                        <span class="callout-title">⚠️ 结果极性变更提醒</span>
+                        <code>startResult</code> 早期版本为 <code>BOOL</code>，<code>YES</code> 表示启动成功；当前版本为 <code>NSInteger</code>，<strong><code>0</code> 表示启动成功、非 <code>0</code> 表示失败</strong>。升级 SDK 时必须把判断改为 <code>if (startResult == 0)</code>：
+                        <ul>
+                            <li>只把 block 参数类型从 <code>BOOL</code> 改成 <code>NSInteger</code>、判断条件仍写 <code>if (startResult)</code> 的代码会把成功判成失败、失败判成成功。</li>
+                            <li>若宿主工程仍在使用随旧 framework 分发的头文件（block 参数为 <code>BOOL</code>），编译不会报错，但运行期语义同样被反转，必须连同头文件一起升级。</li>
+                            <li>仅 ObjC 包装层的 block 参数发生了极性变化；C ABI（<code>startNetshieldService</code>）以及 Android / Windows / Linux 的结果约定均为 <code>0</code> 成功、非 <code>0</code> 失败，未变化。</li>
+                        </ul>
+                    </div>
+
+                    <h3 id="sec-3-3">3.3 macOS</h3>
+                    <p>macOS 接入时将 <code>netshield.framework</code> 加入 App target，并确认运行时可加载该 framework。</p>
+
+                    <h3 id="sec-3-4">3.4 Windows</h3>
+                    <p>Windows 接入时，将 <code>netshield.dll</code> 放在应用可加载目录，例如可执行文件同级目录。应用可以通过导入库链接，也可以在运行时使用 <code>LoadLibrary</code> / <code>GetProcAddress</code> 动态加载 DLL。</p>
+<pre class="doc-code" data-lang="C++"><code>#include "netshield.h"
+#include &lt;stdio.h&gt;
+
+static void __cdecl onStart(int startResult, const char *errMessage, const char *clientIP) {
+    if (startResult == 0) {
+        int port = getLocalhostPort("tcp;web;80");
+        printf("clientIP=%s, url=http://127.0.0.1:%d\n", clientIP ? clientIP : "", port);
+    } else {
+        printf("start failed: %s\n", errMessage ? errMessage : getErrMessage());
+    }
+}
+
+int main() {
+    startNetshieldService("your_pid", "your_key", onStart);
+    return 0;
+}</code></pre>
+
+                    <h3 id="sec-3-5">3.5 Linux</h3>
+                    <p>Linux 接入时，确保应用运行时能加载 <code>libnetshield.so</code>。</p>
+<pre class="doc-code" data-lang="C++"><code>#include "netshield.h"
+#include &lt;stdio.h&gt;
+
+static void onStart(int startResult, const char *errMessage, const char *clientIP) {
+    if (startResult == 0) {
+        int port = getLocalhostPort("tcp;web;80");
+        printf("clientIP=%s, url=http://127.0.0.1:%d\n", clientIP ? clientIP : "", port);
+    } else {
+        printf("start failed: %s\n", errMessage ? errMessage : getErrMessage());
+    }
+}
+
+int main() {
+    startService("your_pid", "your_key", onStart);
+    return 0;
+}</code></pre>
+
+                    <h3 id="sec-3-6">3.6 Cocos Creator 2</h3>
+                    <p>Cocos Creator 2 接入推荐使用项目级 package。业务代码统一通过 <code>window.Netshield</code> 调用，不需要直接区分平台。</p>
+                    <p><span class="step-label">第一步</span>将 Netshield package 放到 Cocos Creator 2 项目的 <code>packages</code> 目录：</p>
+<pre class="doc-code" data-lang="目录结构"><code>&lt;CocosProject&gt;
+├── assets
+├── packages
+│   └── netshield
+│       ├── assets
+│       │   └── Script
+│       │       └── Netshield.js
+│       ├── main.js
+│       ├── package.json
+│       └── native
+│           ├── android
+│           │   └── netshield-release.aar
+│           ├── ios_mac
+│           │   ├── ios
+│           │   │   └── netshield.framework
+│           │   └── mac
+│           │       └── netshield.framework
+│           └── windows
+│               └── netshield.dll
+└── project.json</code></pre>
+                    <p><code>project.json</code> 需要保持项目级 package 目录配置：</p>
+<pre class="doc-code" data-lang="JSON"><code>{
+  "packages": "packages"
+}</code></pre>
+                    <p><span class="step-label">第二步</span>重启 Cocos Creator。确认 JS 门面已同步到：</p>
+<pre class="doc-code" data-lang="路径"><code>&lt;CocosProject&gt;/assets/Script/Netshield.js</code></pre>
+                    <p><span class="step-label">第三步</span>按平台准备原生二进制。</p>
+                    <p>Android 需要放置：</p>
+<pre class="doc-code" data-lang="路径"><code>packages/netshield/native/android/netshield-release.aar</code></pre>
+                    <p>导出 Android Studio 工程后，请确认 AAR 已进入 app module 依赖，并且 native libraries 被合并到最终 APK/AAB：</p>
+<pre class="doc-code" data-lang="Bash"><code>find . -name libnetshield.so -print</code></pre>
+                    <p>如果导出的 Android Studio 工程包含多个 module，请构建实际的 application module。</p>
+                    <p>iOS/macOS 需要放置：</p>
+<pre class="doc-code" data-lang="路径"><code>packages/netshield/native/ios_mac/ios/netshield.framework
+packages/netshield/native/ios_mac/mac/netshield.framework</code></pre>
+                    <p>导出 iOS/macOS 工程后，请确认 <code>netshield.framework</code> 已加入目标 target，并完成嵌入、签名和运行时加载路径配置。</p>
+                    <p>Windows 需要放置：</p>
+<pre class="doc-code" data-lang="路径"><code>packages/netshield/native/windows/netshield.dll</code></pre>
+                    <p>导出 Windows 工程后，请确认 <code>netshield.dll</code> 位于可执行文件可加载目录。</p>
+                    <p><span class="step-label">第四步</span>在业务脚本中调用：</p>
+<pre class="doc-code" data-lang="JavaScript"><code>const result = await window.Netshield.start("your_pid", "your_key");
+
+if (result.startResult === 0) {
+    const port = window.Netshield.getLocalhostPort("tcp;web;80");
+    const url = "http://127.0.0.1:" + port;
+    // 使用 url 发起业务请求。
+} else {
+    console.log(result.errMessage);
+}</code></pre>
+
+                    <h3 id="sec-3-7">3.7 Cocos Creator 3</h3>
+                    <p>Cocos Creator 3 接入需要在原生平台 target 创建完成后引入 Netshield CMake 配置。</p>
+                    <p><span class="step-label">第一步</span>按以下目录结构放置 Netshield TypeScript 门面、接入文件和平台二进制产物：</p>
+<pre class="doc-code" data-lang="目录结构"><code>├── assets
+│   └── netshield
+│       └── Netshield.ts
+└── native
+    └── netshield
+        ├── android
+        │   ├── NetshieldNativeAndroid.cpp
+        │   └── netshield-release.aar
+        ├── cmake
+        │   ├── CodesignMacBinary.cmake
+        │   └── Netshield.cmake
+        ├── common
+        │   ├── NetshieldNative.h
+        │   ├── jsb_netshield_manual.cpp
+        │   └── jsb_netshield_manual.h
+        ├── ios_mac
+        │   ├── NetshieldBridge.h
+        │   ├── NetshieldBridge.mm
+        │   ├── NetshieldNativeApple.mm
+        │   ├── ios
+        │   │   └── netshield.framework
+        │   └── mac
+        │       └── netshield.framework
+        └── windows
+            ├── NetshieldNativeWindows.cpp
+            └── netshield.dll</code></pre>
+                    <p><span class="step-label">第二步</span>修改各平台 CMake 配置。</p>
+                    <p>在 <code>native/engine/mac/CMakeLists.txt</code>、<code>native/engine/ios/CMakeLists.txt</code>、<code>native/engine/win64/CMakeLists.txt</code> 中，找到：</p>
+<pre class="doc-code" data-lang="CMake"><code>add_executable(${EXECUTABLE_NAME} ${CC_ALL_SOURCES})</code></pre>
+                    <p>在其后添加：</p>
+<pre class="doc-code" data-lang="CMake"><code>set(TARGET_NAME_FOR_NETSHIELD ${EXECUTABLE_NAME})
+include(${CC_PROJECT_DIR}/../../netshield/cmake/Netshield.cmake)</code></pre>
+                    <p>在 <code>native/engine/android/CMakeLists.txt</code> 中，找到：</p>
+<pre class="doc-code" data-lang="CMake"><code>add_library(${CC_LIB_NAME} SHARED ${CC_ALL_SOURCES})</code></pre>
+                    <p>在其后添加：</p>
+<pre class="doc-code" data-lang="CMake"><code>set(TARGET_NAME_FOR_NETSHIELD ${CC_LIB_NAME})
+include(${CC_PROJECT_DIR}/../../netshield/cmake/Netshield.cmake)</code></pre>
+                    <p>Android 还需要在 <code>native/engine/android/app/build.gradle</code> 的 <code>dependencies</code> 中添加 AAR 依赖：</p>
+<pre class="doc-code" data-lang="Gradle"><code>dependencies {
+    implementation files('../../../netshield/android/netshield-release.aar')
+}</code></pre>
+                    <p><span class="step-label">第三步</span>注册 JSB 绑定。</p>
+                    <p>在 <code>native/engine/common/Classes/Game.cpp</code> 中添加头文件：</p>
+<pre class="doc-code" data-lang="C++"><code>#include "jsb_netshield_manual.h"</code></pre>
+                    <p>并在 <code>Game::init()</code> 中、<code>BaseGame::init()</code> 之前调用：</p>
+<pre class="doc-code" data-lang="C++"><code>install_netshield_manual_bindings();</code></pre>
+                    <p>如果 Cocos Creator 3 运行时报错：</p>
+<pre class="doc-code" data-lang="报错"><code>Native netshield bridge is not available on globalThis.netshield.Netshield</code></pre>
+                    <p>说明 TypeScript 层已经执行，但原生 JSB bridge 没有注册到 <code>globalThis.netshield.Netshield</code>。请检查：</p>
+                    <ul>
+                        <li><code>native/engine/common/Classes/Game.cpp</code> 是否包含 <code>#include "jsb_netshield_manual.h"</code>。</li>
+                        <li><code>Game::init()</code> 中是否在 <code>BaseGame::init()</code> 之前调用了 <code>install_netshield_manual_bindings()</code>。</li>
+                        <li>当前平台的 <code>native/engine/*/CMakeLists.txt</code> 是否在 native target 创建后 include 了 <code>native/netshield/cmake/Netshield.cmake</code>。</li>
+                        <li>Android 是否已引入 <code>native/netshield/android/netshield-release.aar</code>。</li>
+                    </ul>
+
+                    <h3 id="sec-3-8">3.8 Unity</h3>
+                    <p>Unity 接入推荐使用 <code>Assets/NetshieldPlugin</code> 作为项目内插件目录，C# 层统一通过 <code>Netshield4Unity</code> 调用。</p>
+                    <p><span class="step-label">第一步</span>导入 Unity 插件。发布包如果提供 <code>Netshield.unitypackage</code>，可直接导入；如果提供插件目录，按以下结构放置 Unity 插件文件和平台二进制产物：</p>
+<pre class="doc-code" data-lang="目录结构"><code>&lt;UnityProject&gt;
+└── Assets
+    └── NetshieldPlugin
+        ├── Editor
+        │   ├── NetshieldPluginImporterConfigurator.cs
+        │   └── NetshieldiOSPostProcessBuild.cs
+        ├── Runtime
+        │   ├── INetshieldInterface.cs
+        │   ├── Netshield.cs
+        │   └── impl
+        │       ├── Netshield4Android.cs
+        │       ├── Netshield4OSX.cs
+        │       ├── Netshield4Others.cs
+        │       └── Netshield4Windows.cs
+        └── Plugins
+            ├── Android
+            │   └── netshield-release.aar
+            ├── iOS
+            │   └── netshield.framework
+            ├── macOS
+            │   └── netshield.framework
+            ├── x86
+            │   └── netshield.dll
+            └── x86_64
+                └── netshield.dll</code></pre>
+                    <p>导入 Unity 后，请确认各平台插件的导入设置与目标平台匹配。</p>
+                    <p><span class="step-label">第二步</span>按平台准备原生二进制。</p>
+                    <p>Android 需要放置：</p>
+<pre class="doc-code" data-lang="路径"><code>Assets/NetshieldPlugin/Plugins/Android/netshield-release.aar</code></pre>
+                    <p>导入 Unity 后请确认插件导入设置中 Android 平台已启用。</p>
+                    <p>iOS 需要放置：</p>
+<pre class="doc-code" data-lang="路径"><code>Assets/NetshieldPlugin/Plugins/iOS/netshield.framework</code></pre>
+                    <p>导出 Xcode 工程后请确认 <code>netshield.framework</code> 已加入 target 的 <code>Embed Frameworks</code>，并设置为 <code>Code Sign On Copy</code>。</p>
+                    <p>macOS 需要放置：</p>
+<pre class="doc-code" data-lang="路径"><code>Assets/NetshieldPlugin/Plugins/macOS/netshield.framework</code></pre>
+                    <p>Windows 需要按架构放置：</p>
+<pre class="doc-code" data-lang="路径"><code>Assets/NetshieldPlugin/Plugins/x86/netshield.dll
+Assets/NetshieldPlugin/Plugins/x86_64/netshield.dll</code></pre>
+                    <p><span class="step-label">第三步</span>在业务 C# 脚本中调用：</p>
+<pre class="doc-code" data-lang="C#"><code>using Netshield;
+using UnityEngine;
+
+public class NetshieldExample : MonoBehaviour
+{
+    private const string Pid = "your_pid";
+    private const string Key = "your_key";
+    private const string Rule = "tcp;web;80";
+
+    private void Start()
+    {
+        Netshield4Unity.GetInstance().StartService(Pid, Key, OnNetshieldStarted);
+    }
+
+    private void OnNetshieldStarted(int startResult, string errMessage, string clientIP)
+    {
+        if (startResult != 0)
+        {
+            Debug.LogError("Netshield start failed: " + errMessage);
+            return;
+        }
+
+        int port = Netshield4Unity.GetInstance().GetLocalhostPort(Rule);
+        if (port <= 0)
+        {
+            Debug.LogError("Netshield local port unavailable, rule=" + Rule);
+            return;
+        }
+
+        string url = "http://127.0.0.1:" + port;
+        Debug.Log("Netshield clientIP=" + clientIP + ", url=" + url);
+        // 使用 url 发起业务请求，或交给业务 WebView/HTTP 客户端访问。
+    }
+
+    private void OnApplicationQuit()
+    {
+        Netshield4Unity.GetInstance().StopService();
+    }
+}</code></pre>
+                    <div class="callout callout-note">
+                        <span class="callout-title">注意事项</span>
+                        <ul>
+                            <li><code>GetLocalhostPort</code> 应在 <code>StartService</code> 成功回调后调用。</li>
+                            <li><code>StartService</code> 回调会投递回调用 <code>StartService</code> 时的同步上下文；建议在 Unity 主线程调用 <code>StartService</code>。</li>
+                            <li>Android 若出现 SDK Java 类加载失败，优先检查 AAR 是否已导入 Unity 工程，并确认 Android 插件导入设置已启用。</li>
+                        </ul>
+                    </div>
+
+                    <h3 id="sec-3-9">3.9 Flutter</h3>
+                    <p>Flutter 接入推荐使用 <code>netshield4flutter</code> plugin。业务侧统一通过 Dart API 调用。</p>
+                    <p><span class="step-label">第一步</span>将 <code>netshield4flutter</code> plugin 放到 Flutter 项目可访问的位置，并在业务 App 的 <code>pubspec.yaml</code> 中添加依赖：</p>
+<pre class="doc-code" data-lang="YAML"><code>dependencies:
+  netshield4flutter:
+    path: ../path/to/netshield4flutter</code></pre>
+                    <p><span class="step-label">第二步</span>拉取 Flutter 依赖：</p>
+<pre class="doc-code" data-lang="Bash"><code>cd &lt;FlutterApp&gt;
+fvm flutter pub get</code></pre>
+                    <p><span class="step-label">第三步</span>确认 Android Maven 仓库配置。</p>
+                    <p>如果发布包使用本地 Maven 仓库，宿主 Flutter App 的 Android 工程需要能解析该仓库。例如：</p>
+<pre class="doc-code" data-lang="Gradle"><code>allprojects {
+    repositories {
+        maven {
+            url uri("${rootProject.projectDir}/../../android/local-maven")
+        }
+        google()
+        mavenCentral()
+    }
+}</code></pre>
+                    <p>实际路径以业务 App 与 <code>netshield4flutter</code> plugin 的相对位置为准。</p>
+                    <p><span class="step-label">第四步</span>在 Flutter 业务代码中调用：</p>
+<pre class="doc-code" data-lang="Dart"><code>import 'package:netshield4flutter/netshield4flutter.dart';
+
+final sdk = Netshield4flutter();
+
+Future&lt;void&gt; startNetshield() async {
+  final result = await sdk.startService('your_pid', 'your_key');
+
+  if (!result.isSuccess) {
+    print('Netshield start failed: ${result.errMessage}');
+    return;
+  }
+
+  final port = await sdk.getLocalhostPort('tcp;web;80');
+  if (port &lt;= 0) {
+    print('Netshield local port unavailable');
+    return;
+  }
+
+  final url = 'http://127.0.0.1:$port';
+  print('Netshield clientIP=${result.clientIP}, url=$url');
+  // 使用 url 发起业务请求，或交给业务 WebView/HTTP 客户端访问。
+}
+
+Future&lt;void&gt; stopNetshield() async {
+  await sdk.stopService();
+}</code></pre>
+                    <p><span class="step-label">第五步</span>按目标平台构建。</p>
+<pre class="doc-code" data-lang="Bash"><code>cd &lt;FlutterApp&gt;
+fvm flutter build apk --release
+fvm flutter build ios --release
+fvm flutter build macos --release
+fvm flutter build windows --release</code></pre>
+                    <p>iOS 模拟器不能使用 <code>fvm flutter build ios --release</code>。如需模拟器测试，应使用：</p>
+<pre class="doc-code" data-lang="Bash"><code>fvm flutter build ios --simulator
+fvm flutter run -d &lt;simulator-id&gt;</code></pre>
+                    <div class="callout callout-note">
+                        <span class="callout-title">注意事项</span>
+                        <ul>
+                            <li><code>getLocalhostPort</code> 应在 <code>startService</code> 成功返回后调用。</li>
+                            <li>macOS release 如需网络访问或本地监听，请确认 App entitlements 中包含相应网络权限。</li>
+                            <li>Windows 构建或运行 Flutter Windows App 前，系统可能需要开启开发者模式，以允许 Flutter 插件使用 symlink。</li>
+                            <li>Windows 构建产物需要能在可执行文件目录加载到 <code>netshield.dll</code>。</li>
+                        </ul>
+                    </div>
+
+                    <h3 id="sec-3-10">3.10 UniApp X UTS</h3>
+                    <p>UniApp X 接入推荐使用 <code>uni_modules</code> 形式的 UTS 插件。业务侧统一通过 <code>@/uni_modules/netshield</code> 调用。</p>
+                    <p><span class="step-label">第一步</span>将 Netshield UTS 插件放到 UniApp X 项目的 <code>uni_modules</code> 目录：</p>
+<pre class="doc-code" data-lang="目录结构"><code>&lt;UniAppXProject&gt;
+├── App.uvue
+├── manifest.json
+├── pages.json
+└── uni_modules
+    └── netshield
+        ├── package.json
+        ├── readme.md
+        └── utssdk
+            ├── interface.uts
+            ├── app-android
+            │   ├── NetshieldBridge.kt
+            │   ├── config.json
+            │   ├── index.uts
+            │   └── libs
+            │       └── netshield-release.aar
+            ├── app-ios
+            │   ├── NetshieldBridge.swift
+            │   ├── config.json
+            │   ├── index.uts
+            │   └── Frameworks
+            │       └── netshield.framework
+            └── web
+                └── index.uts</code></pre>
+                    <p><span class="step-label">第二步</span>在 <code>manifest.json</code> 中选择并启用本地插件 <code>netshieldNativePlugin</code>。</p>
+                    <p><span class="step-label">第三步</span>按平台准备原生二进制。</p>
+                    <p>Android 需要放置：</p>
+<pre class="doc-code" data-lang="路径"><code>uni_modules/netshield/utssdk/app-android/libs/netshield-release.aar</code></pre>
+                    <p>构建 App 或自定义基座时，请确认最终 APK/AAB 中包含 AAR 内的 native libraries，并且宿主 manifest 合并了 SDK 所需权限和 Activity。</p>
+                    <p>iOS 需要放置：</p>
+<pre class="doc-code" data-lang="路径"><code>uni_modules/netshield/utssdk/app-ios/Frameworks/netshield.framework</code></pre>
+                    <p>如果需要运行到 iOS 模拟器 App 基座，应使用自定义基座，并确认 <code>netshield.framework</code> 包含 <code>iphonesimulator</code> 架构；如果只包含真机架构，只能在真机基座或正式包中运行。</p>
+                    <p><span class="step-label">第三步</span>在页面或业务模块中调用：</p>
+<pre class="doc-code" data-lang="TypeScript"><code>import { startNetshieldService, stopNetshieldService, getLocalhostPort } from "@/uni_modules/netshield";
+
+startNetshieldService("your_pid", "your_key", (res) => {
+    if (res.code != "0") {
+        console.log("Netshield start failed: " + res.message);
+        return;
+    }
+
+    const port = getLocalhostPort("tcp;web;80");
+    if (port &lt;= 0) {
+        console.log("Netshield local port unavailable");
+        return;
+    }
+
+    const url = "http://127.0.0.1:" + port;
+    console.log("Netshield clientIP=" + res.clientIP + ", url=" + url);
+    // 使用 url 发起业务请求，或交给业务 WebView/HTTP 客户端访问。
+});
+
+stopNetshieldService();</code></pre>
+                    <p><span class="step-label">第四步</span>制作并运行自定义基座。</p>
+                    <p>UniApp X 标准基座不包含业务项目新增的原生 SDK 二进制。接入 <code>netshield-release.aar</code> 或 <code>netshield.framework</code> 后，Android/iOS App 运行调试应使用自定义基座；正式发布时使用云打包或本地打包重新构建 App。</p>
+                    <div class="callout callout-note">
+                        <span class="callout-title">注意事项</span>
+                        <ul>
+                            <li><code>getLocalhostPort</code> 应在 <code>startNetshieldService</code> 成功回调后调用。</li>
+                            <li>iOS 模拟器必须使用包含模拟器架构的 <code>netshield.framework</code>。</li>
+                        </ul>
+                    </div>
+
+                    <h3 id="sec-3-11">3.11 UniApp Native Plugin</h3>
+                    <p>UniApp Native Plugin 接入适用于传统原生插件机制的 UniApp 项目。业务侧通过 <code>uni.requireNativePlugin</code> 获取插件对象，Android 和 iOS 的原生实现由 native plugin 包提供。</p>
+                    <p><span class="step-label">第一步</span>按 UniApp Native Plugin 规范准备插件目录：</p>
+<pre class="doc-code" data-lang="目录结构"><code>&lt;UniAppProject&gt;
+├── manifest.json
+├── pages.json
+└── nativeplugins
+    └── netshieldNativePlugin
+        ├── package.json
+        ├── android
+        │   ├── NetshieldUniAppNativeBridge-release.aar
+        │   └── netshield-debug.aar
+        └── ios
+            ├── NetshieldUniAppNativeBridge.framework
+            └── netshield.framework</code></pre>
+                    <p><span class="step-label">第二步</span>按平台准备原生二进制。</p>
+                    <p>Android 需要确认 native plugin 声明了插件类：</p>
+<pre class="doc-code" data-lang="类名"><code>com.netshield.NetshieldUniAppNativeBridge</code></pre>
+                    <p>并声明或合并以下权限：</p>
+<pre class="doc-code" data-lang="XML"><code>&lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /&gt;
+&lt;uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" /&gt;</code></pre>
+                    <p>iOS 需要确认 native plugin 包含：</p>
+<pre class="doc-code" data-lang="路径"><code>NetshieldUniAppNativeBridge.framework</code></pre>
+                    <p>如果 iOS 需要在 HBuilderX 中运行调试，应先制作自定义基座，确保 <code>NetshieldUniAppNativeBridge.framework</code> 被嵌入并签名。</p>
+                    <p><span class="step-label">第四步</span>在业务代码中调用：</p>
+<pre class="doc-code" data-lang="JavaScript"><code>const netshieldNativePlugin = uni.requireNativePlugin('netshieldNativePlugin');
+
+netshieldNativePlugin.startNetshieldService("your_pid", "your_key", (ret) => {
+    if (ret.startResult == "0") {
+        const port = netshieldNativePlugin.getLocalhostPort("tcp;web;80");
+        const url = "http://127.0.0.1:" + port;
+    } else {
+        console.log(ret.errMessage);
+    }
+});
+
+netshieldNativePlugin.stopNetshieldService();</code></pre>
+                    <div class="callout callout-note">
+                        <span class="callout-title">注意事项</span>
+                        <ul>
+                            <li>Native Plugin 接入后，App 调试应使用自定义基座；标准基座不会内置该原生插件。</li>
+                            <li>iOS framework 如包含动态库，需要加入 Embed Frameworks 并在打包时签名。</li>
+                            <li>Android 如出现类找不到或 native library 加载失败，请检查 native plugin 包结构、AAR 是否进入最终 APK，以及 manifest merge 结果。</li>
+                        </ul>
+                    </div>
+
+                    <!-- 4. 初始化与业务流程 -->
+                    <h2 id="sec-4">4. 初始化与业务流程</h2>
+                    <p>SDK 没有单独的初始化对象或配置对象。启动接口即初始化入口。建议在应用启动后、业务请求发起前尽早启动 SDK。</p>
+                    <p><strong>标准流程：</strong></p>
+<pre class="doc-code" data-lang="流程"><code>准备 pid/key
+  ↓
+调用 start/startService/startNetshieldService
+  ↓
+等待启动回调
+  ↓
+startResult == 0：读取 clientIP，按 rule 查询本地端口
+startResult != 0：展示/记录 errMessage</code></pre>
+                    <p>启动成功后，业务侧使用 <code>getLocalhostPort(rule)</code> 获取本地监听端口，并访问 <code>http://127.0.0.1:&lt;port&gt;</code> 发起受保护请求。<code>getLocalhostPort</code> 返回 <code>-1</code> 表示未找到规则、SDK 未启动成功或内部状态不可用。</p>
+                    <p><strong>参数说明：</strong></p>
+                    <table>
+                        <thead><tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th><th>示例</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>pid</code></td><td>string / <code>const char *</code> / <code>NSString *</code></td><td>是</td><td>客服提供的 pid</td><td><code>123</code></td></tr>
+                            <tr><td><code>key</code></td><td>string / <code>const char *</code> / <code>NSString *</code></td><td>是</td><td>客服提供的 key</td><td>示例中为 32 位字符串</td></tr>
+                            <tr><td><code>callback</code> / <code>completionHandler</code></td><td>函数/闭包</td><td>Android/Windows/Linux 可为空；iOS 示例应传入</td><td>启动完成回调</td><td>见示例</td></tr>
+                        </tbody>
+                    </table>
+
+                    <!-- 5. 异步调用与线程模型 -->
+                    <h2 id="sec-5">5. 异步调用与线程模型</h2>
+                    <table>
+                        <thead><tr><th>平台/包装层</th><th>启动接口</th><th>回调线程</th></tr></thead>
+                        <tbody>
+                            <tr><td>Android Java SDK</td><td>异步</td><td>SDK 通过 <code>Handler(Looper.getMainLooper())</code> 投递到 Android 主线程。</td></tr>
+                            <tr><td>iOS/macOS</td><td>异步</td><td>通过 <code>dispatch_async(dispatch_get_main_queue())</code> 回调。</td></tr>
+                            <tr><td>Windows C ABI</td><td>异步</td><td>基础 SDK 不保证回调在 UI 线程。Flutter/Unity/Cocos3 包装层会切回对应平台线程。</td></tr>
+                            <tr><td>Linux C ABI</td><td>异步</td><td>回调不保证在 UI 主线程触发，UI 程序应自行切回主线程。</td></tr>
+                            <tr><td>Flutter</td><td><code>Future</code></td><td>Android/iOS/macOS/Windows 插件会在平台层完成结果返回。</td></tr>
+                            <tr><td>Unity</td><td>回调</td><td>启动结果投递回调用 <code>StartService</code> 时的上下文。</td></tr>
+                            <tr><td>Cocos Creator 2/3</td><td><code>Promise</code></td><td>原生桥接层将启动结果投递回 Cocos 线程。</td></tr>
+                            <tr><td>UniApp UTS</td><td>回调</td><td>Android SDK 回调为主线程；iOS UTS bridge 显式投递主线程。</td></tr>
+                            <tr><td>UniApp Native Plugin</td><td>回调</td><td>Android/iOS native plugin 会将启动结果投递到主线程。</td></tr>
+                        </tbody>
+                    </table>
+
+                    <!-- 6. 错误处理 -->
+                    <h2 id="sec-6">6. 错误处理</h2>
+                    <table>
+                        <thead><tr><th>字段</th><th>类型</th><th>含义</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>startResult</code> / <code>result</code></td><td>int</td><td><code>0</code> 表示成功；其他值表示失败。</td></tr>
+                            <tr><td><code>errMessage</code> / <code>errorMessage</code></td><td>string</td><td>启动失败原因。成功时通常为空。</td></tr>
+                            <tr><td><code>getLocalhostPort</code> 返回值</td><td>int</td><td>成功返回本地监听端口；失败返回 <code>-1</code>。</td></tr>
+                        </tbody>
+                    </table>
+                    <p>SDK 可能返回的常见失败信息包括：</p>
+                    <table>
+                        <thead><tr><th>失败信息片段</th><th>含义</th><th>建议处理</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>pid and key must not be empty</code></td><td><code>pid</code> 或 <code>key</code> 为空</td><td>检查业务配置。</td></tr>
+                            <tr><td><code>netshield service has been started.</code></td><td>重复启动或服务已启动</td><td>避免重复调用；防护 SDK 通常按进程生命周期启动一次。</td></tr>
+                            <tr><td><code>netshield service is starting</code></td><td>Android 已有启动任务进行中</td><td>等待上一次启动回调。</td></tr>
+                            <tr><td><code>SDK was closed</code></td><td>SDK 内部状态已关闭</td><td>避免重复初始化或异常生命周期调用。</td></tr>
+                            <tr><td><code>failed to create local server</code></td><td>本地服务创建失败</td><td>检查端口占用、系统权限。</td></tr>
+                            <tr><td><code>startup timed out while waiting for network</code></td><td>iOS/macOS 等待网络超时</td><td>检查网络状态后重试。</td></tr>
+                        </tbody>
+                    </table>
+
+                    <!-- 7. 网络与安全 -->
+                    <h2 id="sec-7">7. 网络与安全</h2>
+                    <p>SDK 可确认的网络/安全行为：</p>
+                    <ul>
+                        <li>SDK 启动时会启动本地服务。</li>
+                        <li>业务侧请求应访问 <code>http://127.0.0.1:&lt;port&gt;</code>。</li>
+                    </ul>
+                    <div class="callout callout-tip">
+                        <span class="callout-title">安全提示</span>
+                        不要在业务日志中打印真实 <code>key</code>。文档和 Demo 中的 pid/key 仅用于示例，不应作为生产配置。
+                    </div>
+
+                    <!-- 8. 生命周期管理 -->
+                    <h2 id="sec-8">8. 生命周期管理</h2>
+                    <table>
+                        <thead><tr><th>阶段</th><th>API</th><th>说明</th></tr></thead>
+                        <tbody>
+                            <tr><td>启动/初始化</td><td><code>start...</code></td><td>异步启动；通过回调判断结果。</td></tr>
+                            <tr><td>使用</td><td><code>getLocalhostPort(rule)</code></td><td>启动成功后调用，得到本地监听端口。</td></tr>
+                            <tr><td>停止</td><td><code>stop...</code></td><td>可在应用退出或不再需要防护服务时调用，释放 SDK 资源。</td></tr>
+                        </tbody>
+                    </table>
+                    <p><strong>重复启动：</strong></p>
+                    <ul>
+                        <li>SDK 会通过服务状态防止重复启动。</li>
+                        <li>Android 正在启动时会回调 <code>-1</code> 和 <code>netshield service is starting</code>。</li>
+                        <li>已启动后再次启动可能返回 <code>-1</code> 和 <code>netshield service has been started.</code>。</li>
+                        <li>防护 SDK 通常按进程生命周期启动一次，不建议业务侧设计运行期重启流程。</li>
+                        <li>调用停止接口后，已获取的本地端口不应继续使用；如需再次访问，应重新启动 SDK 并重新查询端口。</li>
+                    </ul>
+
+                    <!-- 9. API Reference -->
+                    <h2 id="sec-9">9. API Reference</h2>
+
+                    <h3 id="sec-9-1">1. 基础结果约定</h3>
+                    <table>
+                        <thead><tr><th>字段/返回值</th><th>含义</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>0</code></td><td>启动成功。</td></tr>
+                            <tr><td>非 <code>0</code></td><td>启动失败。</td></tr>
+                            <tr><td><code>clientIP</code></td><td>启动成功时返回客户端真实 IP；失败时通常为空。</td></tr>
+                            <tr><td><code>errMessage</code> / <code>errorMessage</code></td><td>启动失败原因；成功时通常为空。</td></tr>
+                            <tr><td><code>getLocalhostPort</code> 返回 <code>-1</code></td><td>查询失败、SDK 未启动成功或规则不存在。</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="sec-9-2">2. Android Java API</h3>
+                    <p><strong>类：</strong></p>
+<pre class="doc-code" data-lang="Java"><code>com.netshield.Netshield</code></pre>
+
+                    <h4><code>Netshield.startNetshieldService</code></h4>
+                    <h5>功能</h5>
+                    <p>异步启动防护服务。SDK 内部负责后台启动，并把结果投递到 Android 主线程。</p>
+                    <h5>函数定义</h5>
+<pre class="doc-code" data-lang="Java"><code>public static void startNetshieldService(
+    final String pid,
+    final String key,
+    final StartServiceCallback callback
+)</code></pre>
+                    <h5>参数</h5>
+                    <table>
+                        <thead><tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>pid</code></td><td><code>String</code></td><td>是</td><td>客服提供的 pid。</td></tr>
+                            <tr><td><code>key</code></td><td><code>String</code></td><td>是</td><td>客服提供的 key。</td></tr>
+                            <tr><td><code>callback</code></td><td><code>StartServiceCallback</code></td><td>否</td><td>启动结果回调；代码允许为空。</td></tr>
+                        </tbody>
+                    </table>
+                    <h5>Callback</h5>
+<pre class="doc-code" data-lang="Java"><code>@FunctionalInterface
+public interface StartServiceCallback {
+    void onComplete(int result, String errorMessage, String clientIP);
+}</code></pre>
+                    <table>
+                        <thead><tr><th>参数</th><th>类型</th><th>说明</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>result</code></td><td><code>int</code></td><td><code>0</code> 成功，非 <code>0</code> 失败。</td></tr>
+                            <tr><td><code>errorMessage</code></td><td><code>String</code></td><td>失败详情；成功时通常为空。</td></tr>
+                            <tr><td><code>clientIP</code></td><td><code>String</code></td><td>成功时为客户端真实 IP；失败时通常为空。</td></tr>
+                        </tbody>
+                    </table>
+                    <h5>示例</h5>
+<pre class="doc-code" data-lang="Java"><code>Netshield.startNetshieldService("your_pid", "your_key",
+    (result, errorMessage, clientIP) -> {
+        if (result == 0) {
+            int port = Netshield.getLocalhostPort("tcp;web;80");
+        }
+    });</code></pre>
+
+                    <h4><code>Netshield.getLocalhostPort</code></h4>
+<pre class="doc-code" data-lang="Java"><code>public static native int getLocalhostPort(String rule);</code></pre>
+                    <p>启动成功后根据规则名获取本地监听端口。失败返回 <code>-1</code>。</p>
+
+                    <h4><code>Netshield.getErrMessage</code></h4>
+<pre class="doc-code" data-lang="Java"><code>public static native String getErrMessage();</code></pre>
+                    <p>获取最近一次启动失败信息。新启动接口的回调已经返回 <code>errorMessage</code>，通常优先使用回调参数。</p>
+
+                    <h4><code>Netshield.stopService</code></h4>
+<pre class="doc-code" data-lang="Java"><code>public static native void stopService();</code></pre>
+                    <p>停止防护服务，释放 SDK 资源。</p>
+
+                    <h3 id="sec-9-3">3. iOS/macOS Objective-C API</h3>
+                    <p><strong>类：</strong></p>
+<pre class="doc-code" data-lang="Objective-C"><code>LibNetshield</code></pre>
+
+                    <h4><code>+startService:key:completionHandler:</code></h4>
+<pre class="doc-code" data-lang="Objective-C"><code>+ (void)startService:(NSString *)pid
+                 key:(NSString *)key
+completionHandler:(void (^)(NSInteger startResult,
+                                  NSString *errMessage,
+                                  NSString *clientIP))completionHandler;</code></pre>
+                    <table>
+                        <thead><tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>pid</code></td><td><code>NSString *</code></td><td>是</td><td>客服提供的 pid。</td></tr>
+                            <tr><td><code>key</code></td><td><code>NSString *</code></td><td>是</td><td>客服提供的 key。</td></tr>
+                            <tr><td><code>completionHandler</code></td><td>block</td><td>是</td><td>启动完成回调。</td></tr>
+                        </tbody>
+                    </table>
+                    <p>回调通过主线程触发。</p>
+                    <div class="callout callout-warning">
+                        <span class="callout-title">⚠️ 结果极性变更提醒</span>
+                        <code>startResult</code> 由 <code>BOOL</code>（<code>YES</code> 表示成功）改为 <code>NSInteger</code>（<code>0</code> 表示成功）后，判断条件必须写成 <code>if (startResult == 0)</code>；沿用 <code>if (startResult)</code> 会把成功与失败整体反转。使用旧 framework 头文件编译的宿主工程不会报错，但运行期语义同样被反转，需要连同头文件一起升级。
+                    </div>
+
+                    <h4><code>+getLocalhostPort:</code></h4>
+<pre class="doc-code" data-lang="Objective-C"><code>+ (int)getLocalhostPort:(NSString *)rule;</code></pre>
+                    <p>启动成功后根据规则名获取本地监听端口。</p>
+
+                    <h4><code>+stopService</code></h4>
+<pre class="doc-code" data-lang="Objective-C"><code>+ (void)stopService;</code></pre>
+                    <p>停止防护服务，释放 SDK 资源。</p>
+
+                    <h3 id="sec-9-4">4. Apple C ABI</h3>
+                    <h4><code>startNetshieldService</code></h4>
+<pre class="doc-code" data-lang="C++"><code>void startNetshieldService(
+    const char *pid,
+    const char *key,
+    void (*completionHandler)(int startResult, const char *errMessage, const char *clientIP)
+);</code></pre>
+                    <h4><code>getLocalhostPort</code></h4>
+<pre class="doc-code" data-lang="C++"><code>int getLocalhostPort(const char *rule);</code></pre>
+                    <h4><code>stopNetshieldService</code></h4>
+<pre class="doc-code" data-lang="C++"><code>void stopNetshieldService();</code></pre>
+
+                    <h3 id="sec-9-5">5. Windows C ABI</h3>
+                    <h4><code>NetshieldStartServiceCallback</code></h4>
+<pre class="doc-code" data-lang="C++"><code>typedef void(__cdecl *NetshieldStartServiceCallback)(
+    int startResult,
+    const char *errMessage,
+    const char *clientIP
+);</code></pre>
+                    <h4><code>startNetshieldService</code></h4>
+<pre class="doc-code" data-lang="C++"><code>__declspec(dllexport) void __cdecl startNetshieldService(
+    const char *pid,
+    const char *key,
+    NetshieldStartServiceCallback callback
+);</code></pre>
+                    <p>异步启动防护服务。回调可为空。</p>
+                    <h4><code>getLocalhostPort</code></h4>
+<pre class="doc-code" data-lang="C++"><code>__declspec(dllexport) int __cdecl getLocalhostPort(const char *rule);</code></pre>
+                    <h4><code>getErrMessage</code></h4>
+<pre class="doc-code" data-lang="C++"><code>__declspec(dllexport) const char *__cdecl getErrMessage();</code></pre>
+                    <h4><code>stopNetshieldService</code></h4>
+<pre class="doc-code" data-lang="C++"><code>__declspec(dllexport) void __cdecl stopNetshieldService();</code></pre>
+
+                    <h3 id="sec-9-6">6. Linux C ABI</h3>
+                    <h4><code>NetshieldStartServiceCallback</code></h4>
+<pre class="doc-code" data-lang="C++"><code>typedef void (*NetshieldStartServiceCallback)(
+    int startResult,
+    const char *errMessage,
+    const char *clientIP
+);</code></pre>
+                    <h4><code>startService</code></h4>
+<pre class="doc-code" data-lang="C++"><code>__attribute__((visibility("default"))) void startService(
+    const char *pid,
+    const char *key,
+    NetshieldStartServiceCallback callback
+);</code></pre>
+                    <h4><code>getLocalhostPort</code></h4>
+<pre class="doc-code" data-lang="C++"><code>__attribute__((visibility("default"))) int getLocalhostPort(const char *rule);</code></pre>
+                    <h4><code>getErrMessage</code></h4>
+<pre class="doc-code" data-lang="C++"><code>__attribute__((visibility("default"))) const char *getErrMessage();</code></pre>
+                    <h4><code>stopService</code></h4>
+<pre class="doc-code" data-lang="C++"><code>__attribute__((visibility("default"))) void stopService();</code></pre>
+
+                    <h3 id="sec-9-7">7. Flutter API</h3>
+                    <p><strong>包：</strong></p>
+<pre class="doc-code" data-lang="Dart"><code>package:netshield4flutter/netshield4flutter.dart</code></pre>
+                    <h4><code>Netshield4flutter.startService</code></h4>
+<pre class="doc-code" data-lang="Dart"><code>Future&lt;NetshieldStartResult&gt; startService(String pid, String key)</code></pre>
+                    <h4><code>NetshieldStartResult</code></h4>
+<pre class="doc-code" data-lang="Dart"><code>class NetshieldStartResult {
+  final int resultCode;
+  final String clientIP;
+  final String errMessage;
+
+  bool get isSuccess => resultCode == 0;
+}</code></pre>
+                    <h4><code>Netshield4flutter.getLocalhostPort</code></h4>
+<pre class="doc-code" data-lang="Dart"><code>Future&lt;int&gt; getLocalhostPort(String rule)</code></pre>
+                    <h4><code>Netshield4flutter.stopService</code></h4>
+<pre class="doc-code" data-lang="Dart"><code>Future&lt;void&gt; stopService()</code></pre>
+                    <h4><code>Netshield4flutter.getPlatformVersion</code></h4>
+<pre class="doc-code" data-lang="Dart"><code>Future&lt;String?&gt; getPlatformVersion()</code></pre>
+
+                    <h3 id="sec-9-8">8. Unity API</h3>
+                    <p><strong>命名空间：</strong></p>
+<pre class="doc-code" data-lang="C#"><code>Netshield</code></pre>
+                    <h4><code>Netshield4Unity.GetInstance</code></h4>
+<pre class="doc-code" data-lang="C#"><code>public static Netshield4Unity GetInstance()</code></pre>
+                    <p>返回 SDK 单例。</p>
+                    <h4><code>Netshield4Unity.StartService</code></h4>
+<pre class="doc-code" data-lang="C#"><code>public void StartService(string pid, string key, CompletionHandler completionHandler)</code></pre>
+                    <h4><code>CompletionHandler</code></h4>
+<pre class="doc-code" data-lang="C#"><code>public delegate void CompletionHandler(
+    int startResult,
+    string errMessage,
+    string clientIP
+);</code></pre>
+                    <h4><code>Netshield4Unity.GetLocalhostPort</code></h4>
+<pre class="doc-code" data-lang="C#"><code>public int GetLocalhostPort(string rule)</code></pre>
+                    <h4><code>Netshield4Unity.StopService</code></h4>
+<pre class="doc-code" data-lang="C#"><code>public void StopService()</code></pre>
+
+                    <h3 id="sec-9-9">9. Cocos Creator 2 API</h3>
+                    <p><strong>全局对象：</strong></p>
+<pre class="doc-code" data-lang="JavaScript"><code>window.Netshield</code></pre>
+                    <h4><code>window.Netshield.start</code></h4>
+<pre class="doc-code" data-lang="JavaScript"><code>start(pid, key): Promise&lt;{ startResult, errMessage, clientIP }&gt;</code></pre>
+                    <h4><code>window.Netshield.getLocalhostPort</code></h4>
+<pre class="doc-code" data-lang="JavaScript"><code>getLocalhostPort(rule): number</code></pre>
+                    <h4><code>window.Netshield.stop</code></h4>
+<pre class="doc-code" data-lang="JavaScript"><code>stop(): void</code></pre>
+
+                    <h3 id="sec-9-10">10. Cocos Creator 3 API</h3>
+                    <p><strong>模块：</strong></p>
+<pre class="doc-code" data-lang="TypeScript"><code>import { Netshield } from 'Netshield';</code></pre>
+                    <h4><code>Netshield.start</code></h4>
+<pre class="doc-code" data-lang="TypeScript"><code>start(pid: string, key: string): Promise&lt;NetshieldStartResult&gt;</code></pre>
+<pre class="doc-code" data-lang="TypeScript"><code>export interface NetshieldStartResult {
+    startResult: number;
+    errMessage: string;
+    clientIP: string;
+}</code></pre>
+                    <h4><code>Netshield.getLocalhostPort</code></h4>
+<pre class="doc-code" data-lang="TypeScript"><code>getLocalhostPort(rule: string): number</code></pre>
+                    <h4><code>Netshield.stop</code></h4>
+<pre class="doc-code" data-lang="TypeScript"><code>stop(): void</code></pre>
+
+                    <h3 id="sec-9-11">11. UniApp X UTS API</h3>
+                    <p><strong>模块：</strong></p>
+<pre class="doc-code" data-lang="TypeScript"><code>@/uni_modules/netshield</code></pre>
+                    <h4><code>startNetshieldService</code></h4>
+<pre class="doc-code" data-lang="TypeScript"><code>export type StartNetshieldService =
+  (pid: string, key: string, callback: (res: NetshieldServiceResult) =&gt; void) =&gt; void</code></pre>
+                    <p><strong>回调对象：</strong></p>
+                    <table>
+                        <thead><tr><th>字段</th><th>含义</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>res.code</code></td><td><code>"0"</code> 成功，其他值失败。</td></tr>
+                            <tr><td><code>res.message</code></td><td>错误信息。</td></tr>
+                            <tr><td><code>res.clientIP</code></td><td>客户端真实 IP。</td></tr>
+                        </tbody>
+                    </table>
+                    <h4><code>getLocalhostPort</code></h4>
+<pre class="doc-code" data-lang="TypeScript"><code>export type GetLocalhostPort = (rule: string) =&gt; number</code></pre>
+                    <h4><code>stopNetshieldService</code></h4>
+<pre class="doc-code" data-lang="TypeScript"><code>export type StopNetshieldService = () =&gt; void</code></pre>
+
+                    <h3 id="sec-9-12">12. UniApp Native Plugin API</h3>
+                    <p><strong>插件名：</strong></p>
+<pre class="doc-code" data-lang="JavaScript"><code>netshieldNativePlugin</code></pre>
+                    <p><strong>获取插件：</strong></p>
+<pre class="doc-code" data-lang="JavaScript"><code>const netshieldNativePlugin = uni.requireNativePlugin('netshieldNativePlugin');</code></pre>
+                    <h4><code>startNetshieldService</code></h4>
+<pre class="doc-code" data-lang="JavaScript"><code>netshieldNativePlugin.startNetshieldService(pid, key, callback)</code></pre>
+                    <p><strong>回调对象：</strong></p>
+<pre class="doc-code" data-lang="TypeScript"><code>{
+  startResult: string,
+  errMessage: string,
+  clientIP: string
+}</code></pre>
+                    <h4><code>getLocalhostPort</code></h4>
+<pre class="doc-code" data-lang="JavaScript"><code>const port = netshieldNativePlugin.getLocalhostPort(rule)</code></pre>
+                    <h4><code>stopNetshieldService</code></h4>
+<pre class="doc-code" data-lang="JavaScript"><code>netshieldNativePlugin.stopNetshieldService()</code></pre>
+
+                    <!-- 10. FAQ -->
+                    <h2 id="sec-10">10. FAQ</h2>
+                    <div class="faq-list">
+
+                        <div class="faq-item open">
+                            <button class="faq-q"><span class="badge-q">1</span><span>SDK 初始化失败</span><i class="cci-uncheck-01 faq-toggle"></i></button>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p><strong>现象：</strong>启动回调中 <code>startResult != 0</code>。</p>
+                                <p><strong>原因：</strong></p>
+                                <ul>
+                                    <li><code>pid</code> 或 <code>key</code> 为空。</li>
+                                    <li><code>pid/key</code> 与服务端配置不匹配。</li>
+                                    <li>当前网络无法拉取配置。</li>
+                                    <li>SDK 初始化失败。</li>
+                                    <li>本地目录或设备标识获取失败。</li>
+                                </ul>
+                                <p><strong>排查方式：</strong></p>
+                                <ul>
+                                    <li>确认传入的 <code>pid</code>、<code>key</code> 来自客服提供。</li>
+                                    <li>打印并上报启动回调中的 <code>errMessage</code>。</li>
+                                    <li>检查设备网络是否可访问外网。</li>
+                                    <li>Android 检查 App 是否有 <code>INTERNET</code> 和 <code>ACCESS_NETWORK_STATE</code> 权限。</li>
+                                    <li>桌面平台检查二进制依赖是否完整。</li>
+                                </ul>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>修正 <code>pid/key</code>。</li>
+                                    <li>网络恢复后重新调用启动接口。</li>
+                                    <li>如果 <code>errMessage</code> 指向目录权限或设备标识，检查运行目录、沙盒权限和系统权限。</li>
+                                </ul>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q"><span class="badge-q">2</span><span>重复启动失败</span><i class="cci-uncheck-01 faq-toggle"></i></button>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p><strong>现象：</strong>返回 <code>netshield service is starting</code> 或 <code>netshield service has been started.</code></p>
+                                <p><strong>原因：</strong></p>
+                                <ul>
+                                    <li>上一次启动尚未回调。</li>
+                                    <li>SDK 已经处于启动成功状态。</li>
+                                </ul>
+                                <p><strong>排查方式：</strong></p>
+                                <ul>
+                                    <li>检查业务代码是否重复点击启动按钮或并发调用启动 API。</li>
+                                    <li>Android 示例中使用 <code>startingSDK</code> 防止重复点击。</li>
+                                </ul>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>启动期间禁用启动按钮。</li>
+                                    <li>已启动后不要再次调用启动；防护 SDK 通常随进程运行，不建议业务侧设计主动重启流程。</li>
+                                </ul>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q"><span class="badge-q">3</span><span><code>getLocalhostPort</code> 返回 <code>-1</code></span><i class="cci-uncheck-01 faq-toggle"></i></button>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p><strong>现象：</strong>启动后查询规则端口返回 <code>-1</code>。</p>
+                                <p><strong>原因：</strong></p>
+                                <ul>
+                                    <li>SDK 尚未启动成功。</li>
+                                    <li>传入的 <code>rule</code> 不存在或与服务端配置不匹配。</li>
+                                    <li>SDK 启动流程失败或尚未进入可用状态。</li>
+                                </ul>
+                                <p><strong>排查方式：</strong></p>
+                                <ul>
+                                    <li>确认只在启动成功回调后调用。</li>
+                                    <li>检查规则名是否与服务端配置一致。</li>
+                                    <li>记录启动回调中的 <code>errMessage</code>。</li>
+                                </ul>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>等待启动成功后再查端口。</li>
+                                    <li>使用服务端实际下发的规则名。</li>
+                                    <li>启动失败时不要继续发起本地请求。</li>
+                                </ul>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q"><span class="badge-q">4</span><span>请求 <code>127.0.0.1:&lt;port&gt;</code> 失败</span><i class="cci-uncheck-01 faq-toggle"></i></button>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p><strong>现象：</strong>端口已获取，但访问本地地址失败。</p>
+                                <p><strong>原因：</strong></p>
+                                <ul>
+                                    <li><code>getLocalhostPort</code> 返回 <code>-1</code>，业务仍拼接 URL。</li>
+                                    <li>本地服务未启动或不可用。</li>
+                                    <li>规则对应的上游网络不可达。</li>
+                                    <li>Windows/桌面平台可能存在权限或安全软件拦截。</li>
+                                </ul>
+                                <p><strong>排查方式：</strong></p>
+                                <ul>
+                                    <li>检查端口值是否大于 0。</li>
+                                    <li>确认请求发生在启动成功之后。</li>
+                                    <li>记录 HTTP 状态码和网络错误。</li>
+                                </ul>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>端口为 <code>-1</code> 时不要发起请求。</li>
+                                    <li>网络恢复后重试。</li>
+                                    <li>Windows 场景检查应用权限和防火墙/安全软件策略。</li>
+                                </ul>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q"><span class="badge-q">5</span><span>Timeout</span><i class="cci-uncheck-01 faq-toggle"></i></button>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p><strong>现象：</strong>启动失败信息包含 timeout，例如 <code>startup timed out while waiting for network</code>。</p>
+                                <p><strong>原因：</strong></p>
+                                <ul>
+                                    <li>网络状态长期不可用。</li>
+                                </ul>
+                                <p><strong>排查方式：</strong></p>
+                                <ul>
+                                    <li>检查设备网络。</li>
+                                    <li>Android/iOS/macOS 检查 WebView/WebKit 是否可正常加载页面。</li>
+                                </ul>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>提示用户切换网络或稍后重试。</li>
+                                    <li>允许用户重新启动 SDK。</li>
+                                </ul>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q"><span class="badge-q">6</span><span>SSL / TLS / Certificate 错误</span><i class="cci-uncheck-01 faq-toggle"></i></button>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p><strong>现象：</strong>启动失败或配置拉取失败，错误信息指向网络安全链路。</p>
+                                <p><strong>原因：</strong></p>
+                                <ul>
+                                    <li>当前公开 API 没有证书配置项；证书和安全链路由 SDK 内部处理。</li>
+                                    <li>设备网络、代理、证书环境异常可能导致内部请求失败。</li>
+                                </ul>
+                                <p><strong>排查方式：</strong></p>
+                                <ul>
+                                    <li>记录 <code>errMessage</code>。</li>
+                                    <li>检查系统时间、代理、抓包工具和企业网络证书策略。</li>
+                                </ul>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>关闭异常代理/抓包环境后重试。</li>
+                                    <li>将完整 <code>errMessage</code> 提交给技术支持。</li>
+                                </ul>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q"><span class="badge-q">7</span><span>Callback 没有触发</span><i class="cci-uncheck-01 faq-toggle"></i></button>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p><strong>现象：</strong>调用启动接口后业务层没有收到回调。</p>
+                                <p><strong>原因：</strong></p>
+                                <ul>
+                                    <li>应用进程过早退出。</li>
+                                    <li>桌面 C ABI 示例没有保持主线程/事件循环。</li>
+                                    <li>包装层回调对象被业务层释放。</li>
+                                </ul>
+                                <p><strong>排查方式：</strong></p>
+                                <ul>
+                                    <li>确认进程在异步启动完成前仍然存活。</li>
+                                    <li>Unity/Cocos/Flutter 使用 SDK 发布包提供的官方包装层，不要直接绕过包装层调用 native API。</li>
+                                    <li>Windows/Linux C ABI 接入时确认 callback 函数生命周期足够长。</li>
+                                </ul>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>在启动完成前保持页面/对象存活。</li>
+                                    <li>对 C/C++ 应用，用 condition variable、事件循环或消息循环等待回调。</li>
+                                </ul>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q"><span class="badge-q">8</span><span>多线程问题</span><i class="cci-uncheck-01 faq-toggle"></i></button>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p><strong>现象：</strong>回调里更新 UI 崩溃或无效。</p>
+                                <p><strong>原因：</strong></p>
+                                <ul>
+                                    <li>Windows/Linux 基础 C ABI 未确认会回调到 UI 主线程。</li>
+                                    <li>业务层直接调用基础 C ABI 后在回调中更新 UI。</li>
+                                </ul>
+                                <p><strong>排查方式：</strong></p>
+                                <ul>
+                                    <li>确认当前使用的是基础 SDK 还是 Flutter/Unity/Cocos/UniApp 包装层。</li>
+                                    <li>基础 C ABI 使用方自行切回 UI 线程。</li>
+                                </ul>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>Android Java SDK 回调已投递到 Android 主线程。</li>
+                                    <li>iOS/macOS <code>LibNetshield</code> 回调已投递到主线程。</li>
+                                    <li>Flutter/Unity/Cocos/UniApp 使用 SDK 发布包提供的官方包装层。</li>
+                                    <li>Windows/Linux 原生 App 在回调里手动投递到 UI 线程。</li>
+                                </ul>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q"><span class="badge-q">9</span><span>SDK 崩溃</span><i class="cci-uncheck-01 faq-toggle"></i></button>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p><strong>现象：</strong>启动或请求过程中崩溃。</p>
+                                <p><strong>原因：</strong></p>
+                                <ul>
+                                    <li>native 二进制和包装层版本不匹配。</li>
+                                    <li>缺少 DLL/SO/dylib/framework 或 ABI 不匹配。</li>
+                                    <li>重复启动、并发初始化或生命周期调用异常。</li>
+                                    <li>平台依赖缺失。</li>
+                                </ul>
+                                <p><strong>排查方式：</strong></p>
+                                <ul>
+                                    <li>确认使用同一批 SDK 产物。</li>
+                                    <li>Android 检查 ABI 和 <code>.so</code> 是否打包。</li>
+                                    <li>Windows 检查 <code>netshield.dll</code> 是否在加载路径中。</li>
+                                    <li>iOS/macOS 检查 framework 是否嵌入和签名。</li>
+                                    <li>记录崩溃堆栈和 <code>errMessage</code>。</li>
+                                </ul>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>重新集成匹配的二进制。</li>
+                                    <li>避免重复启动或并发初始化。</li>
+                                    <li>将崩溃堆栈、平台、系统版本、SDK 产物版本提交给技术支持。</li>
+                                </ul>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q"><span class="badge-q">10</span><span>错误码处理</span><i class="cci-uncheck-01 faq-toggle"></i></button>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p><strong>现象：</strong>开发者希望按错误码分类处理。</p>
+                                <p><strong>原因：</strong></p>
+                                <ul>
+                                    <li>当前公开接入按启动成功或失败处理，并同时返回错误字符串。</li>
+                                </ul>
+                                <p><strong>排查方式：</strong></p>
+                                <ul>
+                                    <li>查阅本文 "API Reference" 中的返回值约定。</li>
+                                </ul>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>业务侧按 <code>startResult == 0</code> 判断成功。</li>
+                                    <li>失败时展示或上报 <code>errMessage</code>。</li>
+                                </ul>
+                            </div></div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-q"><span class="badge-q">11</span><span>网络配置在哪里设置？</span><i class="cci-uncheck-01 faq-toggle"></i></button>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p><strong>现象：</strong>开发者希望配置 Server URL、代理、证书、超时。</p>
+                                <p><strong>原因：</strong></p>
+                                <ul>
+                                    <li>当前公开 API 没有网络配置项。</li>
+                                </ul>
+                                <p><strong>排查方式：</strong></p>
+                                <ul>
+                                    <li>公开接入 API 主要用于启动、端口查询和错误信息查询。</li>
+                                </ul>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>将需求（目标 Server、代理方式、超时要求等）提交给客服，由技术支持配置并下发。</li>
+                                </ul>
+                            </div></div>
+                        </div>
+
+                    </div><!-- /.faq-list -->
+
+                </article>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ===================== 页脚 ===================== -->
+<footer>
+    <div class="w-100 m-0 row">
+        <div class="col-md-12 pt-3 pb-3">
+            <div class="container">
+                <p>Copyright 2026 © 游戏盾SDK 版权所有</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- 右侧悬浮客服 -->
+<style>
+    .float-contact {
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        border-radius: 8px 0 0 8px;
+        overflow: hidden;
+    }
+    .float-contact a {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        background: #fff;
+        color: #333;
+        text-decoration: none;
+        font-size: 13px;
+        border-bottom: 1px solid #f0f0f0;
+        transition: all 0.3s;
+        white-space: nowrap;
+    }
+    .float-contact a:last-child { border-bottom: none; }
+    .float-contact a:hover {
+        background: #0ea5e9;
+        color: #fff;
+        padding-right: 20px;
+    }
+    .float-contact a svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        flex-shrink: 0;
+        transition: transform 0.2s;
+    }
+    .float-contact a:hover svg { transform: scale(1.15); }
+    .float-contact .fc-label {
+        max-width: 0;
+        overflow: hidden;
+        transition: max-width 0.3s;
+    }
+    .float-contact a:hover .fc-label { max-width: 200px; }
+</style>
+<div class="float-contact">
+    <a href="https://t.me/dunsdk" target="_blank" title="Telegram: @dunsdk" aria-label="Telegram @dunsdk">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.6 18.6 19.34c-.25 1.14-.92 1.42-1.86.88l-5.15-3.79-2.49 2.4c-.28.28-.5.5-1.03.5l.37-5.25L17.78 5.4c.4-.36-.09-.56-.62-.2L7.06 12.5l-5.18-1.62c-1.13-.35-1.15-1.13.24-1.67L20.3 2.93c.94-.35 1.76.22 1.64 1.67z"/></svg>
+        <span class="fc-label">Telegram @dunsdk</span>
+    </a>
+    <a href="https://t.me/youxidun" target="_blank" title="Telegram: @youxidun" aria-label="Telegram @youxidun">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.6 18.6 19.34c-.25 1.14-.92 1.42-1.86.88l-5.15-3.79-2.49 2.4c-.28.28-.5.5-1.03.5l.37-5.25L17.78 5.4c.4-.36-.09-.56-.62-.2L7.06 12.5l-5.18-1.62c-1.13-.35-1.15-1.13.24-1.67L20.3 2.93c.94-.35 1.76.22 1.64 1.67z"/></svg>
+        <span class="fc-label">Telegram @youxidun</span>
+    </a>
+    <a href="https://wa.me/447925060092" target="_blank" title="WhatsApp: +44 7925 060092" aria-label="WhatsApp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span class="fc-label">WhatsApp +44 7925 060092</span>
+    </a>
+    <a href="mailto:aoecloud@hotmail.com" title="邮箱: aoecloud@hotmail.com" aria-label="邮箱">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span class="fc-label">aoecloud@hotmail.com</span>
+    </a>
+</div>
+
+<!-- FAQ 折叠 + 目录高亮 -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // FAQ 折叠
+    document.querySelectorAll('.faq-q').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            btn.parentElement.classList.toggle('open');
+        });
+    });
+
+    // 侧边目录滚动高亮
+    var links = document.querySelectorAll('#docsToc .nav-link');
+    var targets = [];
+    links.forEach(function (a) {
+        var el = document.querySelector(a.getAttribute('href'));
+        if (el) targets.push({ link: a, el: el });
+    });
+    function onScroll() {
+        var pos = window.scrollY + 140, current = null;
+        targets.forEach(function (t) { if (t.el.offsetTop <= pos) current = t.link; });
+        links.forEach(function (a) { a.classList.remove('active'); });
+        if (current) current.classList.add('active');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+});
+</script>
+
+<script src="assets/js/jquery-3.6.0.slim.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
